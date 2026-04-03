@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Finance Empire — Blog</title>
+  <title>Lepetitfinancier — Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -863,7 +863,10 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a class="logo" href="#" onclick="goHome()">Finance<span>Empire</span></a>
+      <a class="logo" href="#" onclick="goHome()" style="background:none;-webkit-text-fill-color:unset;text-decoration:none;display:flex;align-items:center;gap:0.5rem;color:#fff;font-size:1.1rem">
+        <img src="logo.svg" alt="Lepetitfinancier" style="height:35px;width:auto;filter:brightness(1.5)">
+        <span style="font-weight:800">Lepetitfinancier</span>
+      </a>
       <nav class="nav-links" id="navBar">
         <button class="nav-link active" data-cat="all">Tous</button>
         <button class="nav-link" data-cat="crypto">Crypto</button>
@@ -908,7 +911,10 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="logo">Finance<span>Empire</span></div>
+        <a href="#" onclick="event.preventDefault();goHome()" class="logo" style="background:none;-webkit-text-fill-color:unset;text-decoration:none;display:flex;align-items:center;gap:0.5rem;font-size:1.1rem;color:#0f172a">
+        <img src="logo.svg" alt="Lepetitfinancier" style="height:40px;width:auto">
+        <span style="font-weight:800;background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0">Lepetitfinancier</span>
+      </a>
         <p id="footerDesc">Analyses ind&eacute;pendantes sur la finance personnelle. Crypto, cr&eacute;dit, assurance et investissement d&eacute;crypt&eacute;s pour vous.</p>
       </div>
       <div class="footer-col">
@@ -940,7 +946,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Finance Empire. <span id="footerRights">Tous droits r&eacute;serv&eacute;s.</span></span>
+      <span>&copy; 2026 Lepetitfinancier. <span id="footerRights">Tous droits r&eacute;serv&eacute;s.</span></span>
       <span id="footerDisclaimer">Les informations pr&eacute;sent&eacute;es ne constituent pas des conseils financiers.</span>
     </div>
   </footer>

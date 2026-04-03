@@ -14,7 +14,9 @@
       "Bash(done)",
       "Bash(node add-faqs.js)",
       "Bash(npx vercel:*)",
-      "Bash(netlify.toml:*)"
+      "Bash(netlify.toml:*)",
+      "Bash(npx netlify:*)",
+      "Bash(gh repo:*)"
     ]
   }
 }
