@@ -31,7 +31,8 @@
       "Bash(git commit -m \"Fix glossary search bar display and improve functionality:*)",
       "Bash(git commit -m \"Fix glossary search functionality:*)",
       "Bash(git commit -m \"Add URL routing with hash-based navigation:*)",
-      "Bash(git commit -m \"Implement critical SEO improvements per Google Bot audit:*)"
+      "Bash(git commit -m \"Implement critical SEO improvements per Google Bot audit:*)",
+      "Bash(git commit -m \"Add internal linking strategy and backlink prospection plan:*)"
     ]
   }
 }
