@@ -57,8 +57,8 @@ Répartition de ses investissements sur plusieurs classes d'actifs, secteurs et 
 ### ETF (Exchange-Traded Fund)
 Fonds indiciel coté en bourse qui réplique un indice (CAC 40, S&P 500, MSCI World). Frais très bas (0,1-0,3%/an), diversification instantanée. L'outil préféré des investisseurs passifs.
 
-### E-E-A-T
-Critères Google : Experience, Expertise, Authoritativeness, Trustworthiness. Détermine la crédibilité d'un contenu web.
+### Escompte
+Réduction appliquée au prix d'un titre ou d'une obligation lorsqu'il est acheté avant son échéance. Inverse : la prime (surcoût). L'escompte représente le rendement additionnel obtenu en payant moins que la valeur nominale.
 
 ## F
 
