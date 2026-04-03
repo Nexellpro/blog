@@ -886,21 +886,9 @@
       <div class="header-search">
         <input type="text" placeholder="Chercher un article...">
       </div>
-      <div class="header-cta">
-        <div class="header-dropdown">
-          <button class="header-btn" onclick="toggleCatMenu()">📁 Catégories</button>
-          <div class="cat-dropdown" id="catMenu" style="display:none;position:absolute;top:65px;right:0;background:white;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);z-index:1000;min-width:200px">
-            <a href="#" onclick="event.preventDefault();cat='crypto';render();goHome();toggleCatMenu()" style="display:block;padding:0.75rem 1.5rem;text-decoration:none;color:#0f172a;border-bottom:1px solid #e5e7eb;font-size:0.9rem">Crypto</a>
-            <a href="#" onclick="event.preventDefault();cat='credit';render();goHome();toggleCatMenu()" style="display:block;padding:0.75rem 1.5rem;text-decoration:none;color:#0f172a;border-bottom:1px solid #e5e7eb;font-size:0.9rem">Crédit</a>
-            <a href="#" onclick="event.preventDefault();cat='assurance';render();goHome();toggleCatMenu()" style="display:block;padding:0.75rem 1.5rem;text-decoration:none;color:#0f172a;border-bottom:1px solid #e5e7eb;font-size:0.9rem">Assurance</a>
-            <a href="#" onclick="event.preventDefault();cat='investissement';render();goHome();toggleCatMenu()" style="display:block;padding:0.75rem 1.5rem;text-decoration:none;color:#0f172a;font-size:0.9rem">Investissement</a>
-          </div>
-        </div>
-        <button class="header-btn" onclick="openPage('contact')">✉️ Newsletter</button>
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="fr">FR</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-        </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
       </div>
     </div>
   </header>
