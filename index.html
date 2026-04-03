@@ -877,11 +877,43 @@
       .theme-header h2 { font-size: 1.3rem; }
     }
 
+    /* ============ MAIN WRAPPER WITH SIDEBARS ============ */
+    .main-wrapper {
+      display: flex;
+      gap: 2rem;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+    .sidebar {
+      min-width: 300px;
+      flex-shrink: 0;
+    }
+    .sidebar-ad {
+      position: sticky;
+      top: 100px;
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 1280px) {
+      .main-wrapper { gap: 1rem; }
+      .sidebar { min-width: 250px; }
+    }
+    @media (max-width: 1024px) {
+      .main-wrapper { flex-direction: column; }
+      .sidebar { min-width: 100%; }
+      .sidebar-ad { position: relative; top: auto; }
+    }
+
     /* ============ CONTENT ============ */
     .content {
       max-width: var(--container);
       margin: 0 auto;
-      padding: 0 1.5rem 4rem;
+      padding: 0;
+      flex: 1;
     }
 
 
@@ -1748,8 +1780,35 @@
       </div>
     </section>
 
-    <!-- THEMATIC SECTIONS -->
-    <div class="content" id="mainContent"></div>
+    <!-- THEMATIC SECTIONS WITH SIDEBARS -->
+    <div class="main-wrapper">
+      <!-- LEFT SIDEBAR -->
+      <div class="sidebar sidebar-left">
+        <div class="sidebar-ad">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-8962636370487349"
+               data-ad-slot="1234567890"
+               data-ad-format="vertical"
+               data-full-width-responsive="false"></ins>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="content" id="mainContent"></div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="sidebar sidebar-right">
+        <div class="sidebar-ad">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-8962636370487349"
+               data-ad-slot="0987654321"
+               data-ad-format="vertical"
+               data-full-width-responsive="false"></ins>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- SEARCH RESULTS VIEW -->

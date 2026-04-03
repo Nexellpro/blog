@@ -40,7 +40,8 @@
       "Read(//c/Users/Marou/Desktop/Blog/$HOME/Desktop/**)",
       "Read(//c/Users/Marou/**)",
       "Bash(xargs -I {} sh -c 'cd {} && pwd')",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(xargs -r kill -9)"
     ]
   }
 }
