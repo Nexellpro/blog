@@ -998,9 +998,9 @@
         <p style="margin:0.15rem 0 0 0;color:#a3a3b3;font-size:0.75rem;font-weight:500;letter-spacing:0.5px">Analyses indépendantes</p>
       </div>
       <div class="header-nav">
-        <a class="header-nav-btn" href="#" onclick="openPage('simulator'); return false;">Simulateur</a>
-        <a class="header-nav-btn" href="#" onclick="openPage('learn'); return false;">Guides</a>
-        <a class="header-nav-btn" href="#" onclick="openPage('glossary'); return false;">Glossaire</a>
+        <a class="header-nav-btn" href="#/simulator">Simulateur</a>
+        <a class="header-nav-btn" href="#/learn">Guides</a>
+        <a class="header-nav-btn" href="#/glossary">Glossaire</a>
       </div>
       <div class="header-search">
         <input type="text" id="searchInput" placeholder="Chercher un article..." oninput="handleSearch()">
@@ -1244,6 +1244,43 @@
 
     let lang = 'fr';
     let cat = 'all';
+
+    // Routing handler
+    function handleRoute() {
+      const hash = window.location.hash.slice(1); // Remove #
+      const [path, params] = hash.split('?');
+
+      if (!path || path === '/') {
+        goHome();
+        return;
+      }
+
+      const page = path.replace(/^\//, ''); // Remove leading /
+
+      // Map URLs to page keys
+      const pageMap = {
+        'simulator': 'simulator',
+        'learn': 'learn',
+        'glossary': 'glossary',
+        'contact': 'contact',
+        'legal': 'legal',
+        'faq': 'faq'
+      };
+
+      if (pageMap[page]) {
+        openPage(pageMap[page]);
+      } else {
+        goHome();
+      }
+    }
+
+    // Listen for URL changes
+    window.addEventListener('hashchange', handleRoute);
+
+    // Handle initial load
+    document.addEventListener('DOMContentLoaded', () => {
+      handleRoute();
+    });
 
     // Thematic sections config — engaging titles instead of raw category names
     const THEMES = {
