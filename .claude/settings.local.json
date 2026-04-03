@@ -26,7 +26,12 @@
       "Bash(git commit -m \"Add 4 new blog themes and ''Show more articles'' button:*)",
       "Bash(grep -E \"\\\\.md$\")",
       "Bash(git commit -m \"Update header navigation with utility buttons:*)",
-      "Bash(git commit -m \"Revamp header buttons and legal documents:*)"
+      "Bash(git commit -m \"Revamp header buttons and legal documents:*)",
+      "Bash(git commit -m \"Remove E-E-A-T from glossary \\(not a financial term\\) and replace with Escompte:*)",
+      "Bash(git commit -m \"Fix glossary search bar display and improve functionality:*)",
+      "Bash(git commit -m \"Fix glossary search functionality:*)",
+      "Bash(git commit -m \"Add URL routing with hash-based navigation:*)",
+      "Bash(git commit -m \"Implement critical SEO improvements per Google Bot audit:*)"
     ]
   }
 }

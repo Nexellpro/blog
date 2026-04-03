@@ -1,0 +1,21 @@
+# Le Petit Financier - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.claude/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://lepetitfinancier.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Respect robots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
