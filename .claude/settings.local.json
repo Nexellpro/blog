@@ -25,7 +25,8 @@
       "Bash(git commit -m \"Add header navigation buttons for themes and simulator:*)",
       "Bash(git commit -m \"Add 4 new blog themes and ''Show more articles'' button:*)",
       "Bash(grep -E \"\\\\.md$\")",
-      "Bash(git commit -m \"Update header navigation with utility buttons:*)"
+      "Bash(git commit -m \"Update header navigation with utility buttons:*)",
+      "Bash(git commit -m \"Revamp header buttons and legal documents:*)"
     ]
   }
 }

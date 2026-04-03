@@ -1,71 +1,191 @@
 # Conditions Générales d'Utilisation
 
-*Dernière mise à jour : 1er avril 2026*
+*Dernière mise à jour : 3 avril 2026*
 
 ---
 
-## 1. Objet
+## 1. Définitions et objet
 
-Les présentes Conditions Générales d'Utilisation (CGU) définissent les modalités d'accès et d'utilisation du site Finance Empire (ci-après "le Site"). En accédant au Site, vous acceptez sans réserve les présentes CGU.
+### Définitions
+- **"Le Site"** : www.lepetitfinancier.com et tous ses contenus
+- **"Vous"** ou **"Utilisateur"** : toute personne accédant au Site
+- **"Éditeur"** ou **"Nous"** : Nexell Pro, éditeur du Site
 
-## 2. Accès au site
+### Objet
+Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du Site.
 
-L'accès au Site est gratuit. Il est accessible 24h/24 et 7j/7, sous réserve d'interruptions pour maintenance ou de cas de force majeure.
+**En accédant au Site, vous acceptez pleinement et sans réserve les CGU.**
 
-Finance Empire se réserve le droit de modifier, suspendre ou interrompre tout ou partie du Site à tout moment, sans préavis ni indemnité.
+## 2. Accès et utilisation du Site
 
-## 3. Contenu du site
+### Disponibilité
+- L'accès est **gratuit et sans inscription obligatoire**
+- Disponible 24h/24, 7j/7, sauf maintenance technique ou cas de force majeure
+- Aucune garantie de disponibilité continue ne peut être donnée
 
-### Nature des contenus
-Les articles, analyses, données et informations publiés sur Finance Empire ont un caractère **purement informatif et éducatif**. Ils ne constituent pas :
-- Des conseils en investissement au sens de la directive MiFID II
-- Des recommandations personnalisées d'achat ou de vente
-- Une sollicitation à investir dans un instrument financier
+### Droits d'accès
+L'Éditeur se réserve le droit de :
+- **Refuser l'accès** à certains visiteurs (abus, bots, hackers)
+- **Supprimer ou modifier** tout contenu sans préavis
+- **Interrompre le service** temporairement ou définitivement
+- **Appliquer des restrictions** à la bande passante ou aux téléchargements
 
-### Exactitude
-Finance Empire s'efforce de publier des informations exactes et à jour. Cependant, l'éditeur ne garantit pas l'absence d'erreurs ou d'omissions. Les données de marché citées sont issues de sources publiques et sont susceptibles de varier.
+### Interdictions d'usage
+**Vous acceptez de ne pas** :
+- Utiliser des bots, scrapers ou outils d'automatisation
+- Télécharger massivement du contenu
+- Attaquer le serveur ou utiliser le site pour des cyberattaques
+- Publier du contenu malveillant, illégal ou offensant
+- Contourner les mesures de sécurité
+- Revendre l'accès à des tiers
+- Utiliser le site à des fins commerciales non autorisées
+- Utiliser les données pour du machine learning ou de l'IA sans permission
 
-### Avertissement sur les risques
-Tout investissement comporte des risques, y compris le risque de perte totale du capital. Les performances passées ne préjugent pas des performances futures. Avant toute décision d'investissement, consultez un conseiller financier professionnel agréé.
+## 3. Contenu du Site
 
-## 4. Propriété intellectuelle
+### Caractère informatif et éducatif
+**Le contenu du Site est à titre informatif et éducatif uniquement.**
 
-Tous les contenus du Site (textes, images, logos, mise en page, code source) sont la propriété exclusive de Finance Empire ou de ses partenaires et sont protégés par le Code de la propriété intellectuelle.
+Tout article, analyse, graphique, calculatrice ou donnée ne constitue **jamais** :
+- Un conseil financier professionnel
+- Une recommandation d'achat ou de vente
+- Une sollicitation à réaliser une transaction
+- Une analyse personnalisée de votre situation
+- Une prévision certaine des marchés futurs
 
-**Sont autorisés** :
-- La lecture et la consultation à titre personnel
-- Le partage de liens vers les articles sur les réseaux sociaux
-- La citation courte (max. 200 mots) avec mention de la source et lien vers l'article original
+### Utilisation des simulateurs
+Les calculatrices et outils interactifs :
+- Sont basés sur des formules standard
+- Produisent des **estimations, non des prévisions exactes**
+- Ne tiennent pas compte de votre situation fiscale/bancaire précise
+- **Doivent être validés auprès de votre banque avant toute décision**
 
-**Sont interdits** sans autorisation écrite préalable :
-- La reproduction intégrale ou partielle des articles
-- La réutilisation commerciale des contenus
-- Le scraping ou l'extraction automatisée de données
+### Responsabilité du contenu
+L'Éditeur :
+- **S'efforce** de publier des informations exactes
+- **Ne garantit pas** l'absence d'erreurs ou d'omissions
+- **Ne garantit pas** la mise à jour en temps réel des données
+- **Décline toute responsabilité** pour les inexactitudes involontaires
 
-## 5. Liens hypertextes
+### Sources des données
+Les données cités proviennent de sources publiques (BCE, Banque de France, CoinGecko, etc.) et sont susceptibles de varier ou contenir des erreurs.
 
-Le Site peut contenir des liens vers des sites tiers. Finance Empire ne contrôle pas ces sites et décline toute responsabilité quant à leur contenu, leurs pratiques de confidentialité ou leur disponibilité.
+## 4. Responsabilité de l'Utilisateur
 
-## 6. Responsabilité
+### Décisions d'investissement
+**Vous êtes seul responsable** de vos décisions financières. Avant toute action :
+- Consultez un conseiller professionnel agréé
+- Vérifiez les informations auprès de votre banque
+- Étudiez votre profil de risque
+- Lisez tous les documents contractuels
 
-Finance Empire ne saurait être tenu responsable :
-- Des décisions d'investissement prises par les lecteurs
-- Des pertes financières directes ou indirectes résultant de l'utilisation des informations du Site
-- Des interruptions d'accès au Site
-- Des dommages liés à l'utilisation de sites tiers accessibles via des liens
+### Acceptation des risques
+Vous acceptez que :
+- **Les investissements comportent des risques**, y compris la perte totale du capital
+- **Les performances passées** ne garantissent pas les résultats futurs
+- **La volatilité** peut entraîner des pertes importantes
+- **Les crypto-monnaies** présentent des risques exceptionnellement élevés
 
-## 7. Données personnelles
+## 5. Propriété intellectuelle
 
-Le traitement des données personnelles est régi par notre Politique de Confidentialité, accessible sur le Site.
+### Droits d'auteur
+Tous les contenus (articles, textes, images, logos, mise en page, code) sont la propriété exclusive de l'Éditeur ou de ses partenaires, protégés par le droit d'auteur français et international.
 
-## 8. Modification des CGU
+**© 2026 Nexell Pro. Tous droits réservés.**
 
-Finance Empire se réserve le droit de modifier les présentes CGU à tout moment. Les modifications entrent en vigueur dès leur publication sur le Site. L'utilisation continue du Site après modification vaut acceptation des nouvelles CGU.
+### Utilisation autorisée
+✅ Lecture personnelle
+✅ Partage de liens sur réseaux sociaux
+✅ Citation courte (< 200 mots) avec attribution et lien source
+✅ Usage éducatif et non commercial
 
-## 9. Droit applicable
+### Utilisation interdite
+❌ Reproduction intégrale ou partielle sans permission
+❌ Réutilisation commerciale
+❌ Scraping ou extraction automatisée
+❌ Modification ou création d'œuvres dérivées
+❌ Revente ou hébergement du contenu
 
-Les présentes CGU sont soumises au droit français. Tout litige relatif à l'utilisation du Site sera soumis aux tribunaux compétents de Paris.
+**Contrevenants : recours légaux possibles (Article L335-3 du Code de la propriété intellectuelle)**
 
-## 10. Contact
+## 6. Liens hypertextes
 
-Pour toute question relative aux présentes CGU : contact@finance-empire.com
+### Liens externes
+Le Site contient des liens vers des sites tiers. **L'Éditeur ne contrôle pas** ces sites et décline toute responsabilité pour :
+- Leur contenu ou exactitude
+- Leurs pratiques de confidentialité
+- Leur disponibilité ou continuité
+- Les dommages causés par ces sites
+
+### Demande de lien
+Pour ajouter votre site, contactez contact@lepetitfinancier.com. L'Éditeur se réserve le droit d'accepter ou refuser.
+
+## 7. Limitation de responsabilité
+
+### Exemptions de responsabilité
+**L'Éditeur ne peut être tenu responsable** de :
+- Décisions d'investissement des lecteurs
+- Pertes financières résultant des informations du Site
+- Interruptions ou indisponibilité du Site
+- Erreurs ou omissions du contenu
+- Dommages causés par des sites tiers
+- Dommages indirects ou consécutifs
+- Mauvaise utilisation du Site
+
+### Dommages maxima
+En toute circonstance, la responsabilité de l'Éditeur est limitée à **zéro euro**, puisque le service est gratuit.
+
+## 8. Données personnelles
+
+Le traitement de vos données personnelles est régi par notre **Politique de Confidentialité**. Consultez-la pour connaître :
+- Les données collectées
+- Vos droits (accès, rectification, suppression)
+- Les bases légales de traitement
+- Les cookies utilisés
+
+## 9. Conformité et droits
+
+### Droit français
+- Les CGU sont soumises au droit français
+- Tout litige sera de la compétence exclusive des tribunaux français
+- Conformité RGPD et lois françaises
+
+### Vos droits
+Vous disposez de droits notamment :
+- Droit d'accès à vos données
+- Droit de rectification
+- Droit à l'oubli
+- Droit à la portabilité
+- Droit d'opposition
+
+Pour exercer vos droits, écrivez à contact@lepetitfinancier.com
+
+## 10. Modifications des CGU
+
+- Les CGU peuvent être modifiées **à tout moment sans préavis**
+- Les modifications entrent en vigueur à leur publication
+- **Continuer à utiliser le Site = acceptation des modifications**
+
+Consultez régulièrement cette page pour les mises à jour.
+
+## 11. Dispositions finales
+
+### Intégralité
+Si une disposition est jugée invalide, les autres restent en vigueur.
+
+### Contenu généré par l'utilisateur
+Vous restez propriétaire du contenu que vous partagez. En publiant du contenu (commentaires, messages), vous accordez à l'Éditeur une licence pour l'utiliser publiquement.
+
+### Force majeure
+L'Éditeur ne peut être tenu responsable des événements échappant à son contrôle (tremblements de terre, pannes internet, attaques informatiques).
+
+## 12. Contact
+
+**Pour toute question ou demande concernant les CGU :**
+📧 contact@lepetitfinancier.com
+
+---
+
+**Merci de votre confiance et de votre utilisation responsable du Site.**
+
+*Dernière mise à jour : 3 avril 2026*
