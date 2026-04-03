@@ -1503,16 +1503,7 @@
       };
     });
 
-    // Category nav
-    document.getElementById('navBar').onclick = (e) => {
-      const link = e.target.closest('.nav-link');
-      if (!link) return;
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-      cat = link.dataset.cat;
-      goHome();
-      render();
-    };
+    // Category nav removed - categories now in footer
 
     // (old carousel removed — articles now in thematic sections)
 
