@@ -2345,11 +2345,13 @@
     // Toggle category menu
     function toggleCatMenu() {
       const menu = document.getElementById('catMenu');
-      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+      if (menu) {
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+      }
     }
     document.addEventListener('click', (e) => {
       const catMenu = document.getElementById('catMenu');
-      if (!e.target.closest('.header-dropdown')) {
+      if (catMenu && !e.target.closest('.header-dropdown')) {
         catMenu.style.display = 'none';
       }
     });
