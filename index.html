@@ -100,28 +100,62 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ============ TRUST BADGES ============ */
-    .trust-badges {
-      display: flex;
+    /* ============ GETTING STARTED SECTION ============ */
+    .getting-started-section {
+      max-width: var(--container);
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .getting-started-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
       margin-top: 2.5rem;
     }
-    .trust-badge {
+    .getting-started-card {
+      padding: 2rem 1.75rem;
+      border-radius: 12px;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .getting-started-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    .gs-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.9);
-      background: rgba(255,255,255,0.1);
-      padding: 0.75rem 1.25rem;
-      border-radius: 50px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
     }
-    .trust-badge-icon {
-      font-size: 1.2rem;
+    .getting-started-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .getting-started-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .gs-link {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .gs-link:hover {
+      color: var(--blue);
+      transform: translateX(4px);
     }
 
     /* ============ SKIP TO CONTENT ============ */
@@ -434,7 +468,7 @@
     .featured-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(37,99,235,0.3) 100%);
+      background: linear-gradient(135deg, rgba(10,20,60,0.7) 0%, rgba(37,99,235,0.4) 50%, rgba(139,92,246,0.3) 100%);
       z-index: 2;
     }
     .featured-hero-content {
@@ -452,25 +486,29 @@
     }
     .featured-hero-tag {
       display: inline-block;
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1.25rem;
       border-radius: 50px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: rgba(255,255,255,0.2);
+      letter-spacing: 0.6px;
+      background: rgba(255,255,255,0.15);
       color: #fff;
       margin-bottom: 1rem;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .featured-hero h2 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 900;
       line-height: 1.2;
       margin-bottom: 1rem;
       letter-spacing: -0.8px;
-      color: white;
+      background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .featured-hero p {
       font-size: 1.1rem;
@@ -498,23 +536,24 @@
       text-decoration: none;
     }
     .hero-btn-primary {
-      background: white;
-      color: var(--blue);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.4);
     }
     .hero-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(59,130,246,0.5);
     }
     .hero-btn-secondary {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
       color: white;
-      border: 2px solid white;
+      border: 1.5px solid rgba(255,255,255,0.4);
       backdrop-filter: blur(10px);
     }
     .hero-btn-secondary:hover {
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-2px);
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.6);
     }
     .featured-hero-dots {
       position: absolute;
@@ -539,36 +578,176 @@
       border-radius: 4px;
     }
 
-    /* ============ STATS SECTION ============ */
-    .stats-section {
+    /* ============ FAQ SECTION ============ */
+    .faq-section {
       max-width: var(--container);
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .faq-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      text-align: center;
-      animation: fadeUp 0.6s ease-out;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
     }
-    .stat-item {
+    .faq-item {
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: var(--card-bg);
+      border-left: 4px solid var(--blue);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transform: translateX(4px);
+    }
+    .faq-question {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
+    }
+    .faq-question::after {
+      content: '▼';
+      font-size: 0.7rem;
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question::after {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-top: 1rem;
+    }
+
+    /* ============ NEWSLETTER CTA SECTION ============ */
+    .newsletter-cta-section {
+      max-width: var(--container);
+      margin: 3rem auto;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
+      border-radius: 16px;
+      text-align: center;
+    }
+    .newsletter-cta-section h2 {
+      margin-bottom: 0.5rem;
+    }
+    .newsletter-cta-section > p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .newsletter-cta-form {
+      display: flex;
       gap: 0.5rem;
+      max-width: 500px;
+      margin: 0 auto;
     }
-    .stat-number {
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--blue);
-      line-height: 1;
+    .newsletter-cta-form input {
+      flex: 1;
+      padding: 1rem;
+      border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: var(--font);
+      background: rgba(255,255,255,0.7);
     }
-    .stat-label {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      font-weight: 500;
-      letter-spacing: 0.3px;
+    .newsletter-cta-form input::placeholder {
+      color: var(--text-muted);
     }
+    .newsletter-cta-form input:focus {
+      outline: none;
+      background: white;
+      border-color: var(--blue);
+    }
+    .newsletter-cta-form button {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .newsletter-cta-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59,130,246,0.3);
+    }
+
+    /* ============ RESPONSIVE - NEW SECTIONS ============ */
+    @media (max-width: 768px) {
+      .getting-started-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .getting-started-card {
+        padding: 1.5rem 1.25rem;
+      }
+      .gs-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+      }
+      .getting-started-card h3 {
+        font-size: 1rem;
+      }
+      .getting-started-card p {
+        font-size: 0.85rem;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-cta-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem auto;
+      }
+      .newsletter-cta-form {
+        flex-direction: column;
+        max-width: 100%;
+      }
+      .newsletter-cta-form input,
+      .newsletter-cta-form button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .getting-started-grid {
+        grid-template-columns: 1fr;
+      }
+      .gs-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+      }
+      .getting-started-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .faq-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-cta-section h2 {
+        font-size: 1.5rem;
+      }
+      .newsletter-cta-section > p {
+        font-size: 0.9rem;
+      }
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -1785,24 +1964,89 @@
            data-full-width-responsive="true"></ins>
     </div>
 
-    <!-- STATS SECTION -->
-    <section class="stats-section">
-      <div class="stat-item">
-        <div class="stat-number">1200+</div>
-        <div class="stat-label">Articles Publiés</div>
+    <!-- GETTING STARTED SECTION -->
+    <section class="getting-started-section">
+      <div class="section-content">
+        <h2 style="text-align:center;margin-bottom:0.5rem">🚀 Commencer Ici</h2>
+        <p style="text-align:center;color:var(--text-muted);margin-bottom:2.5rem;font-size:1rem">Nouveau sur la finance personnelle? Voici par où commencer</p>
+
+        <div class="getting-started-grid">
+          <div class="getting-started-card" style="background:linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.05) 100%);border:1px solid rgba(59,130,246,0.2)">
+            <div class="gs-icon" style="background:linear-gradient(135deg, #3b82f6, #2563eb);color:white">💳</div>
+            <h3>Gérer le Crédit</h3>
+            <p>Comprenez les taux, les crédits immobiliers et comment épargner des milliers d'euros</p>
+            <a href="#/credit" class="gs-link">Découvrir →</a>
+          </div>
+
+          <div class="getting-started-card" style="background:linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(139,92,246,0.05) 100%);border:1px solid rgba(139,92,246,0.2)">
+            <div class="gs-icon" style="background:linear-gradient(135deg, #8b5cf6, #7c3aed);color:white">📊</div>
+            <h3>Investir Intelligemment</h3>
+            <p>Débuter en bourse, crypto, ou placements sans risquer votre épargne</p>
+            <a href="#/investissement" class="gs-link">Découvrir →</a>
+          </div>
+
+          <div class="getting-started-card" style="background:linear-gradient(135deg, rgba(34,197,94,0.1) 0%, rgba(34,197,94,0.05) 100%);border:1px solid rgba(34,197,94,0.2)">
+            <div class="gs-icon" style="background:linear-gradient(135deg, #22c55e, #16a34a);color:white">🛡️</div>
+            <h3>S'Assurer Correctement</h3>
+            <p>Protégez votre patrimoine sans payer trop cher pour vos assurances</p>
+            <a href="#/assurance" class="gs-link">Découvrir →</a>
+          </div>
+
+          <div class="getting-started-card" style="background:linear-gradient(135deg, rgba(236,72,153,0.1) 0%, rgba(236,72,153,0.05) 100%);border:1px solid rgba(236,72,153,0.2)">
+            <div class="gs-icon" style="background:linear-gradient(135deg, #ec4899, #db2777);color:white">💰</div>
+            <h3>Épargner Efficacement</h3>
+            <p>Plans d'épargne, PEA, livrets: trouvez la meilleure stratégie pour vous</p>
+            <a href="#/" class="gs-link">Découvrir →</a>
+          </div>
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">100k+</div>
-        <div class="stat-label">Lecteurs/Année</div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+      <h2 style="text-align:center">❓ Questions Fréquentes</h2>
+      <div class="faq-grid">
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">Comment démarrer en crypto?</div>
+          <div class="faq-answer">Nous avons des guides complets pour les débutants. Commencez par notre guide "Crypto pour Débutants" qui couvre les bases: sécurité, wallets, exchanges, et premières transactions.</div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">Quel est le meilleur placement?</div>
+          <div class="faq-answer">Cela dépend de vos objectifs, durée d'investissement et tolérance au risque. Consultez notre article "5 Stratégies pour Investir 10 000€" pour des analyses détaillées par profil.</div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">Comment optimiser mon crédit immobilier?</div>
+          <div class="faq-answer">Le refinancement peut vous économiser des milliers d'euros. Consultez notre comparatif des taux mensuels et trouvez la meilleure opportunité avant que les taux ne remontent.</div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">Quelle assurance vie choisir?</div>
+          <div class="faq-answer">Notre classement des meilleurs fonds euros et unités de compte vous aide à trouver le bon contrat selon votre profil. Économisez sur les frais d'entrée et les versements.</div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">Comment économiser 10 000€ par an?</div>
+          <div class="faq-answer">Découvrez comment les 90% des Français perdent de l'argent et les 10 erreurs coûteuses à éviter. Téléchargez notre guide gratuit et faites le calcul pour votre situation.</div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">Vos contenus sont-ils fiables?</div>
+          <div class="faq-answer">Oui! Tous nos articles sont basés sur 14+ ans d'expérience dans la finance, vérifiés avec des sources officielles. Nous ne recevons aucun sponsorship qui pourrait biaiser nos analyses.</div>
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">426</div>
-        <div class="stat-label">Catégories</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">14+</div>
-        <div class="stat-label">Années d'Expertise</div>
-      </div>
+    </section>
+
+    <!-- NEWSLETTER CTA SECTION -->
+    <section class="newsletter-cta-section">
+      <h2>📧 Recevez les Meilleures Analyses</h2>
+      <p>Une email par semaine. Zéro spam. Zéro vente de données.</p>
+
+      <form class="newsletter-cta-form" onsubmit="handleNewsletterCta(event)">
+        <input type="email" placeholder="Votre email..." required>
+        <button type="submit">S'inscrire Gratuitement</button>
+      </form>
     </section>
 
     <!-- THEMATIC SECTIONS WITH SIDEBARS -->
@@ -2927,21 +3171,11 @@
         <div class="featured-hero-overlay"></div>
         <div class="featured-hero-content">
           <span class="featured-hero-tag" style="background:${CAT_META[item.cat].color}">${CAT_META[item.cat].label}</span>
-          <h2>Gérez Votre Finance Comme Un Expert</h2>
-          <p>1200+ articles, outils gratuits, zéro fluff. Rejoignez 100k+ lecteurs qui optimisent leur portefeuille avec nos analyses indépendantes.</p>
-          <div class="trust-badges">
-            <div class="trust-badge">
-              <span class="trust-badge-icon">✓</span>
-              <span>100% Indépendant</span>
-            </div>
-            <div class="trust-badge">
-              <span class="trust-badge-icon">🔒</span>
-              <span>RGPD Compliant</span>
-            </div>
-            <div class="trust-badge">
-              <span class="trust-badge-icon">⭐</span>
-              <span>Zéro Publicité Trompeuse</span>
-            </div>
+          <h2>Maîtrisez Votre Finance Personnelle</h2>
+          <p>Analyses indépendantes, outils concrets, stratégies éprouvées. Rejoignez les lecteurs qui reprennent le contrôle de leur argent.</p>
+          <div class="featured-hero-cta">
+            <a href="#/" class="hero-btn-primary" onclick="goHome(); return false;">Explorer les Articles</a>
+            <button class="hero-btn-secondary" onclick="document.getElementById('newsletterModal').style.display='flex'">S'inscrire à la Newsletter</button>
           </div>
         </div>
         <div class="featured-hero-dots">
@@ -3033,6 +3267,11 @@
         if (source === 'modal') closeNewsletterModal();
         if (source === 'mobile') document.getElementById('newsletterMobileBanner').classList.remove('active');
       }, 2000);
+    }
+
+    // Handle newsletter CTA form submission
+    function handleNewsletterCta(e) {
+      handleNewsletterSubmit(e, 'cta');
     }
 
     // Initialize newsletter features on page load
