@@ -33,7 +33,14 @@
       "Bash(git commit -m \"Add URL routing with hash-based navigation:*)",
       "Bash(git commit -m \"Implement critical SEO improvements per Google Bot audit:*)",
       "Bash(git commit -m \"Add internal linking strategy and backlink prospection plan:*)",
-      "Bash(http-server . -p 3000 -c-1)"
+      "Bash(http-server . -p 3000 -c-1)",
+      "Bash(xargs kill:*)",
+      "Bash(netstat -tuln)",
+      "Bash(pkill -f 'python3 -m http.server')",
+      "Read(//c/Users/Marou/Desktop/Blog/$HOME/Desktop/**)",
+      "Read(//c/Users/Marou/**)",
+      "Bash(xargs -I {} sh -c 'cd {} && pwd')",
+      "Bash(git commit:*)"
     ]
   }
 }
