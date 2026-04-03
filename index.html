@@ -1747,46 +1747,65 @@
     }
 
     function setupGlossarySearch() {
+      // Create search container if it doesn't exist
+      const articleContent = document.getElementById('articleContent');
+      const existingSearch = articleContent.querySelector('#glossSearchContainer');
+
+      if (!existingSearch) {
+        const searchHTML = `
+          <div id="glossSearchContainer" style="margin-bottom:2rem;padding:1.5rem;background:#f5f5f5;border-radius:10px">
+            <input type="text" id="glossSearch" placeholder="🔍 Chercher un terme..." style="width:100%;padding:0.8rem;border:1px solid #ddd;border-radius:8px;font-size:1rem;font-family:inherit">
+            <p id="glossSearchCount" style="margin-top:0.5rem;color:#666;font-size:0.9rem;display:none"></p>
+          </div>
+        `;
+        articleContent.insertAdjacentHTML('afterbegin', searchHTML);
+      }
+
       const searchInput = document.getElementById('glossSearch');
       if (!searchInput) return;
 
-      // Store original HTML
-      const glossaryDiv = document.getElementById('glossaryContent');
-      if (!glossaryDiv) return;
-      const originalHTML = glossaryDiv.innerHTML;
+      // Store original HTML (all h2, h3, p after the search container)
+      const glossaryContent = articleContent.innerHTML;
 
       searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase().trim();
 
         if (!query) {
-          glossaryDiv.innerHTML = originalHTML;
-          document.getElementById('glossSearchCount').style.display = 'none';
+          // Restore original
+          articleContent.innerHTML = glossaryContent;
+          setupGlossarySearch(); // Re-attach listener
           return;
         }
 
         // Get all h3 elements (terms) and their following content
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = originalHTML;
-        const allH3 = tempDiv.querySelectorAll('h3');
+        const allH3 = articleContent.querySelectorAll('h3');
         let visibleCount = 0;
-        let resultHTML = '';
+        let resultHTML = document.getElementById('glossSearchContainer').outerHTML;
 
         allH3.forEach((h3) => {
           const termName = h3.textContent.trim();
-          const nextP = h3.nextElementSibling;
-          const definition = nextP ? nextP.textContent.toLowerCase() : '';
+          let nextSibling = h3.nextElementSibling;
+          let definition = '';
+
+          // Get the definition (usually in a <p>)
+          if (nextSibling && nextSibling.tagName === 'P') {
+            definition = nextSibling.textContent.toLowerCase();
+          }
+
           const fullText = (termName + ' ' + definition).toLowerCase();
 
           if (fullText.includes(query)) {
             resultHTML += h3.outerHTML;
-            if (nextP) {
-              resultHTML += nextP.outerHTML;
+            if (nextSibling && nextSibling.tagName === 'P') {
+              resultHTML += nextSibling.outerHTML;
             }
             visibleCount++;
           }
         });
 
-        glossaryDiv.innerHTML = resultHTML;
+        articleContent.innerHTML = resultHTML;
+        setupGlossarySearch(); // Re-attach listener
+
         const countDiv = document.getElementById('glossSearchCount');
         countDiv.textContent = `${visibleCount} résultat${visibleCount !== 1 ? 's' : ''} trouvé${visibleCount !== 1 ? 's' : ''}`;
         countDiv.style.display = 'block';
