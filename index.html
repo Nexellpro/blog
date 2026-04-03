@@ -1566,9 +1566,11 @@
       }, 6000);
     }
 
+    console.log('Initializing...', { lang, hasArticles: !!ARTICLES[lang], hasThemes: !!THEMES[lang] });
     renderFeaturedHero();
     resetFeaturedTimer();
     render();
+    console.log('Render complete', document.getElementById('mainContent').innerHTML.length);
   </script>
 </body>
 </html>
