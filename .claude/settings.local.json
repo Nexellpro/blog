@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls articles/fr/**/*.md)",
+      "Bash(ls articles/en/**/*.md)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:blog.nalo.fr)",
+      "Bash(for f:*)",
+      "Bash(do if:*)",
+      "Bash(then echo:*)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(node add-faqs.js)",
+      "Bash(npx vercel:*)",
+      "Bash(netlify.toml:*)"
+    ]
+  }
+}

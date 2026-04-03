@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Empire — Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8962636370487349" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-light: #eff6ff;
+      --text: #111827;
+      --text-light: #4b5563;
+      --text-muted: #9ca3af;
+      --bg: #f9fafb;
+      --white: #fff;
+      --border: #e5e7eb;
+      --border-light: #f3f4f6;
+      --green: #059669;
+      --orange: #ea580c;
+      --purple: #7c3aed;
+      --red: #dc2626;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-hover: 0 10px 25px rgba(0,0,0,0.1);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --container: 1120px;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.95);
+    }
+    .header-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      gap: 2rem;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 1.35rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+    .logo span { color: var(--blue); }
+
+    /* Nav inline in header */
+    .nav-links {
+      display: flex;
+      gap: 0;
+      flex: 1;
+    }
+    .nav-link {
+      padding: 0 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-decoration: none;
+      cursor: pointer;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font);
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--blue); }
+    .nav-link.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .lang-switch {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 0.3rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font);
+      border: none;
+      background: var(--white);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .lang-btn:hover:not(.active) { background: var(--bg); color: var(--text); }
+
+    /* ============ FEATURED HERO ============ */
+    .featured-hero {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      max-height: 420px;
+    }
+    .featured-hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      transition: transform 8s ease;
+    }
+    .featured-hero:hover img {
+      transform: scale(1.03);
+    }
+    .featured-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+    }
+    .featured-hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 3rem;
+      color: var(--white);
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .featured-hero-tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .featured-hero h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+      max-width: 700px;
+    }
+    .featured-hero p {
+      font-size: 0.95rem;
+      font-weight: 400;
+      opacity: 0.8;
+      line-height: 1.6;
+      max-width: 550px;
+    }
+    .featured-hero-dots {
+      position: absolute;
+      bottom: 1.25rem;
+      right: 2rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+    .featured-hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .featured-hero-dot.active {
+      background: #fff;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* ============ AD BANNERS ============ */
+    .ad-banner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+    }
+    .ad-banner ins {
+      display: block;
+    }
+    /* Fallback placeholder when ads don't load (dev/localhost) */
+    .ad-banner .ad-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .ad-banner-leaderboard .ad-fallback { min-height: 100px; }
+    .ad-banner-infeed { padding: 0.75rem 1.5rem; }
+    .ad-banner-infeed .ad-fallback { min-height: 120px; border-radius: var(--radius); }
+
+    /* In-article ads */
+    .ad-placeholder {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 0.5rem 0;
+    }
+    .ad-placeholder ins { display: block; }
+    .ad-placeholder .ad-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      max-width: 336px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* ============ THEMATIC SECTIONS ============ */
+    .theme-section {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 0;
+    }
+    .theme-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+    }
+    .theme-header h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .theme-header h2 span {
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .theme-subtitle {
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .theme-see-all {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: var(--font);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .theme-see-all:hover { gap: 0.6rem; }
+
+    /* Horizontal scroll row */
+    .theme-scroll {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 0.5rem;
+    }
+    .theme-scroll::-webkit-scrollbar { display: none; }
+
+    /* Big feature card */
+    .theme-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .theme-feature-main {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      min-height: 360px;
+    }
+    .theme-feature-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s;
+    }
+    .theme-feature-main:hover img { transform: scale(1.04); }
+    .theme-feature-main .tfo {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 60%);
+    }
+    .theme-feature-main .tfc {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      color: #fff;
+    }
+    .theme-feature-main .tfc .tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .theme-feature-main .tfc h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+    .theme-feature-main .tfc p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+    .theme-feature-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .theme-feature-side-card {
+      flex: 1;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+      overflow: hidden;
+    }
+    .theme-feature-side-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateX(4px);
+    }
+    .theme-feature-side-card img {
+      width: 100px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+    .theme-feature-side-card .tsc-body { flex: 1; }
+    .theme-feature-side-card .tsc-cat {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+    .theme-feature-side-card h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .theme-feature-side-card:hover h4 { color: var(--blue); }
+
+    /* Pill cards (horizontal scroll) */
+    .pill-card {
+      min-width: 300px;
+      max-width: 300px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+    }
+    .pill-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .pill-card img {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      display: block;
+    }
+    .pill-card-body {
+      padding: 1rem 1.15rem 1.25rem;
+    }
+    .pill-card-cat {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+    .pill-card h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .pill-card:hover h3 { color: var(--blue); }
+    .pill-card-excerpt {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 0.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Divider between sections */
+    .theme-divider {
+      max-width: var(--container);
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .theme-divider-line {
+      height: 1px;
+      background: var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .theme-feature {
+        grid-template-columns: 1fr;
+      }
+      .theme-feature-main { min-height: 260px; }
+      .theme-header h2 { font-size: 1.3rem; }
+      .pill-card { min-width: 260px; max-width: 260px; }
+    }
+
+    /* ============ CONTENT ============ */
+    .content {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+
+    /* ============ ARTICLE VIEW ============ */
+    .article-view {
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .article-view.active { display: block; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      border: none;
+      background: none;
+      font-family: var(--font);
+    }
+    .back-link:hover { color: var(--blue-dark); }
+
+    .article-content h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+    .article-content h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .article-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 2rem 0 0.75rem;
+    }
+    .article-content p {
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+    .article-content strong { color: var(--text); }
+    .article-content a { color: var(--blue); text-decoration: none; }
+    .article-content a:hover { text-decoration: underline; }
+    .article-content .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.5rem 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .article-content table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .article-content th {
+      background: #f0f4f8;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    .article-content td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+    .article-content tr:last-child td { border-bottom: none; }
+    .article-content tr:hover td { background: #fafbfc; }
+    @media (max-width: 768px) {
+      .article-content table { font-size: 0.82rem; }
+      .article-content th, .article-content td { padding: 0.6rem 0.7rem; }
+    }
+    .article-content ul, .article-content ol {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      color: var(--text-light);
+    }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+    .article-content em { color: var(--text-muted); }
+    .article-content blockquote {
+      border-left: 4px solid var(--blue);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: var(--blue-light);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: var(--text-light);
+    }
+    .ad-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      margin: 2rem 0;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      background: var(--border-light);
+    }
+
+    /* ============ RELATED ARTICLES ============ */
+    .related-section {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid var(--border);
+    }
+    .related-section h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.3px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .related-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    .related-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      display: block;
+    }
+    .related-card-body {
+      padding: 0.85rem 1rem;
+    }
+    .related-card-cat {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+    .related-card h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .related-card:hover h4 { color: var(--blue); }
+    @media (max-width: 768px) {
+      .related-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 0;
+      font-size: 0.82rem;
+    }
+    .footer-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand .logo {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    .footer-brand .logo span { color: var(--blue); }
+    .footer-brand p {
+      margin-top: 0.75rem;
+      line-height: 1.7;
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-col li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-col a {
+      color: #64748b;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.8rem;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: #475569;
+    }
+    .footer-bottom a {
+      color: #64748b;
+      text-decoration: none;
+    }
+    .footer-bottom a:hover { color: #fff; }
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .featured-hero h2 { font-size: 1.4rem; }
+      .featured-hero-content { padding: 1.5rem; }
+      .featured-hero, .featured-hero img { max-height: 320px; height: 320px; }
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 768px) {
+      .card-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .carousel-card { min-width: calc(80% - 0.85rem); }
+      .carousel-header h2 { font-size: 1.3rem; }
+      .nav-links { overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-link { padding: 0 0.7rem; font-size: 0.75rem; }
+      .news-card { min-width: 260px; max-width: 260px; }
+      .article-card img { height: 120px; }
+      .ad-banner-leaderboard .ad-banner-inner { min-height: 60px; }
+    }
+    @media (max-width: 480px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .header-inner { padding: 0 1rem; gap: 0.75rem; }
+    }
+
+    /* ============ ANIMATIONS ============ */
+    .fade-up {
+      animation: fadeUp 0.4s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="#" onclick="goHome()">Finance<span>Empire</span></a>
+      <nav class="nav-links" id="navBar">
+        <button class="nav-link active" data-cat="all">Tous</button>
+        <button class="nav-link" data-cat="crypto">Crypto</button>
+        <button class="nav-link" data-cat="credit">Cr&eacute;dit</button>
+        <button class="nav-link" data-cat="assurance">Assurance</button>
+        <button class="nav-link" data-cat="investissement">Investir</button>
+      </nav>
+      <div class="header-right">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <div id="homeView">
+    <section class="featured-hero" id="featuredHero"></section>
+
+    <!-- AD: Leaderboard after hero -->
+    <div class="ad-banner ad-banner-leaderboard">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8962636370487349"
+           data-ad-slot="auto"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- THEMATIC SECTIONS -->
+    <div class="content" id="mainContent"></div>
+  </div>
+
+  <!-- ARTICLE VIEW -->
+  <div class="article-view" id="articleView">
+    <button class="back-link" id="backBtn">&larr; Retour aux articles</button>
+    <div class="article-content" id="articleContent"></div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Finance<span>Empire</span></div>
+        <p id="footerDesc">Analyses ind&eacute;pendantes sur la finance personnelle. Crypto, cr&eacute;dit, assurance et investissement d&eacute;crypt&eacute;s pour vous.</p>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerCatTitle">Cat&eacute;gories</h4>
+        <ul>
+          <li><a href="#" onclick="event.preventDefault();cat='crypto';render();goHome()">Crypto</a></li>
+          <li><a href="#" onclick="event.preventDefault();cat='credit';render();goHome()" id="footerCredit">Cr&eacute;dit</a></li>
+          <li><a href="#" onclick="event.preventDefault();cat='assurance';render();goHome()" id="footerAssurance">Assurance</a></li>
+          <li><a href="#" onclick="event.preventDefault();cat='investissement';render();goHome()" id="footerInvest">Investissement</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerResTitle">Ressources</h4>
+        <ul>
+          <li><a href="#" onclick="event.preventDefault();openPage('learn')" id="footerLearn">Apprendre &agrave; investir</a></li>
+          <li><a href="#" onclick="event.preventDefault();openPage('simulator')" id="footerSim">Simulateur de cr&eacute;dit</a></li>
+          <li><a href="#" onclick="event.preventDefault();openPage('glossary')" id="footerGlossary">Glossaire</a></li>
+          <li><a href="#" onclick="event.preventDefault();openPage('faq')" id="footerFaq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerLegalTitle">L&eacute;gal</h4>
+        <ul>
+          <li><a href="#" onclick="event.preventDefault();openPage('legal')" id="footerLegal">Mentions l&eacute;gales</a></li>
+          <li><a href="#" onclick="event.preventDefault();openPage('privacy')" id="footerPrivacy">Politique de confidentialit&eacute;</a></li>
+          <li><a href="#" onclick="event.preventDefault();openPage('terms')" id="footerTerms">CGU</a></li>
+          <li><a href="#" onclick="event.preventDefault();openPage('contact')" id="footerContact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Finance Empire. <span id="footerRights">Tous droits r&eacute;serv&eacute;s.</span></span>
+      <span id="footerDisclaimer">Les informations pr&eacute;sent&eacute;es ne constituent pas des conseils financiers.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+
+  <script>
+    const ARTICLES = {
+      fr: {
+        crypto: [
+          { file: 'articles/fr/crypto/bitcoin-halving-2026-impact-cours.md', title: "Bitcoin Halving 2026 : Faut-il Acheter Avant ou Apr\u00e8s ?", news: false },
+          { file: 'articles/fr/crypto/top-10-plateformes-crypto-2026-comparatif.md', title: "Top 10 Plateformes Crypto 2026 : Comparatif Frais et S\u00e9curit\u00e9", news: false },
+          { file: 'articles/fr/crypto/fiscalite-crypto-france-2026-guide-declaration.md', title: "Fiscalit\u00e9 Crypto France 2026 : Guide Complet", news: false },
+          { file: 'articles/fr/crypto/ethereum-vs-solana-2026-comparatif.md', title: "Ethereum vs Solana 2026 : O\u00f9 Placer Son Argent ?", news: false },
+          { file: 'articles/fr/crypto/staking-crypto-2026-meilleurs-rendements.md', title: "Staking Crypto 2026 : Meilleurs Rendements", news: false },
+          { file: 'articles/fr/crypto/sec-autorise-staking-etf-ethereum-2026.md', title: "La SEC Autorise le Staking dans les ETF Ethereum", news: true },
+          { file: 'articles/fr/crypto/mica-un-an-bilan-plateformes-crypto-europe-2026.md', title: "MiCA Un An Apr\u00e8s : Le Grand M\u00e9nage Crypto en Europe", news: true },
+          { file: 'articles/fr/crypto/portefeuille-crypto-debutant-2026.md', title: "Portefeuille Crypto D\u00e9butant 2026 : Par O\u00f9 Commencer ?", news: false },
+          { file: 'articles/fr/crypto/arnaques-crypto-courantes-2026.md', title: "Les 5 Arnaques Crypto les Plus Courantes en 2026", news: false },
+          { file: 'articles/fr/crypto/bitcoin-vs-or-actif-refuge-2026.md', title: "Bitcoin vs Or : Quel Actif Refuge en 2026 ?", news: false },
+          { file: 'articles/fr/crypto/defi-protocoles-rendement-reel-2026.md', title: "DeFi 2026 : Les Protocoles Qui G\u00e9n\u00e8rent du Rendement R\u00e9el", news: false },
+          { file: 'articles/fr/crypto/nft-2026-mort-ou-renaissance.md', title: "NFT en 2026 : Mort ou Renaissance ?", news: false },
+          { file: 'articles/fr/crypto/securiser-cryptos-wallets-hardware-software.md', title: "S\u00e9curiser Ses Cryptos : Hardware vs Software Wallets", news: false },
+          { file: 'articles/fr/crypto/layer-2-arbitrum-optimism-base-2026.md', title: "Layer 2 en 2026 : Arbitrum, Optimism, Base \u2014 Lequel Choisir ?", news: false },
+          { file: 'articles/fr/crypto/minage-crypto-rentable-2026.md', title: "Minage Crypto 2026 : Encore Rentable ou Perte de Temps ?", news: false },
+        ],
+        credit: [
+          { file: 'articles/fr/credit/taux-immobilier-mars-2026-comparatif-banques.md', title: "Taux Immobilier Mars 2026 : Comparatif Banques", news: false },
+          { file: 'articles/fr/credit/rachat-credits-2026-economies-mensualites.md', title: "Rachat de Cr\u00e9dits 2026 : -40% sur Vos Mensualit\u00e9s", news: false },
+          { file: 'articles/fr/credit/credit-auto-2026-loa-lld-comparatif.md', title: "Cr\u00e9dit Auto 2026 : LOA vs LLD vs Classique", news: false },
+          { file: 'articles/fr/credit/simulation-credit-immobilier-2026-capacite-emprunt.md', title: "Combien Pouvez-Vous Emprunter en 2026 ?", news: false },
+          { file: 'articles/fr/credit/pret-personnel-2026-meilleurs-taux.md', title: "Pr\u00eat Personnel 2026 : Taux les Plus Bas", news: false },
+          { file: 'articles/fr/credit/baisse-taux-bce-mars-2026-impact-credit-immobilier.md', title: "Baisse Taux BCE Mars 2026 : Impact sur Votre Cr\u00e9dit", news: true },
+          { file: 'articles/fr/credit/buy-now-pay-later-2026-bombe-credit-conso.md', title: "Buy Now Pay Later : La Bombe \u00e0 Retardement", news: true },
+          { file: 'articles/fr/credit/primo-accedant-guide-ultime-2026.md', title: "Primo-Acc\u00e9dant 2026 : Le Guide Ultime", news: false },
+          { file: 'articles/fr/credit/taux-fixe-vs-variable-2026.md', title: "Taux Fixe vs Taux Variable 2026 : Quel Choix ?", news: false },
+          { file: 'articles/fr/credit/surendettement-solutions-legales-2026.md', title: "Surendettement 2026 : Comment S'en Sortir", news: false },
+          { file: 'articles/fr/credit/credit-immobilier-sans-apport-2026.md', title: "Cr\u00e9dit Immobilier Sans Apport : Possible en 2026 ?", news: false },
+          { file: 'articles/fr/credit/ameliorer-score-credit-2026.md', title: "Score de Cr\u00e9dit : L'Am\u00e9liorer Rapidement en 2026", news: false },
+          { file: 'articles/fr/credit/renegocier-credit-immobilier-2026.md', title: "Ren\u00e9gocier Son Cr\u00e9dit Immobilier en 2026", news: false },
+          { file: 'articles/fr/credit/micro-credit-solutions-2026.md', title: "Micro-Cr\u00e9dit 2026 : Solutions pour les Exclus Bancaires", news: false },
+          { file: 'articles/fr/credit/credit-travaux-renovation-energetique-2026.md', title: "Cr\u00e9dit Travaux 2026 : Financer Sa R\u00e9novation", news: false },
+        ],
+        assurance: [
+          { file: 'articles/fr/assurance/assurance-vie-2026-fonds-euros-rendement.md', title: "Assurance Vie 2026 : Fonds Euros Qui Rapportent", news: false },
+          { file: 'articles/fr/assurance/comparatif-assurance-auto-2026-economies.md', title: "Assurance Auto 2026 : 300\u20ac d\u2019\u00c9conomies", news: false },
+          { file: 'articles/fr/assurance/assurance-habitation-2026-guide-comparatif.md', title: "Assurance Habitation 2026 : Guide Complet", news: false },
+          { file: 'articles/fr/assurance/mutuelle-sante-2026-couverture-budget.md', title: "Mutuelle Sant\u00e9 2026 : Couverture & Budget", news: false },
+          { file: 'articles/fr/assurance/assurance-emprunteur-2026-loi-lemoine.md', title: "Assurance Emprunteur : \u00c9conomisez avec la Loi Lemoine", news: false },
+          { file: 'articles/fr/assurance/hausse-primes-assurance-habitation-2026-solutions.md', title: "Primes Habitation +12% : Pourquoi et Comment R\u00e9agir", news: true },
+          { file: 'articles/fr/assurance/mutuelle-sante-ia-intelligence-artificielle-2026.md', title: "L\u2019IA Fait Baisser (ou Monter) Vos Cotisations Sant\u00e9", news: true },
+          { file: 'articles/fr/assurance/assurance-animaux-comparatif-2026.md', title: "Assurance Animaux 2026 : Comparatif et Meilleures Offres", news: false },
+          { file: 'articles/fr/assurance/assurance-voyage-destination-2026.md', title: "Assurance Voyage 2026 : Laquelle Choisir ?", news: false },
+          { file: 'articles/fr/assurance/resilier-assurance-droits-2026.md', title: "R\u00e9silier Son Assurance : Vos Droits en 2026", news: false },
+          { file: 'articles/fr/assurance/assurance-cyber-risques-entreprise-2026.md', title: "Assurance Cyber-Risques 2026 : Prot\u00e9ger Son Entreprise", news: false },
+          { file: 'articles/fr/assurance/assurance-deces-proteger-famille-2026.md', title: "Assurance D\u00e9c\u00e8s 2026 : Prot\u00e9ger Sa Famille", news: false },
+          { file: 'articles/fr/assurance/garantie-accidents-vie-gav-2026.md', title: "GAV 2026 : Indispensable ou Superflu ?", news: false },
+          { file: 'articles/fr/assurance/assurance-trottinette-velo-electrique-2026.md', title: "Assurance Trottinette et V\u00e9lo \u00c9lectrique 2026", news: false },
+        ],
+        investissement: [
+          { file: 'articles/fr/investissement/meilleurs-etf-pea-2026-portefeuille.md', title: "Meilleurs ETF PEA 2026 : Portefeuille \u00e0 3 Lignes", news: false },
+          { file: 'articles/fr/investissement/scpi-2026-rendements-fiscalite-classement.md', title: "SCPI 2026 : Rendements, Fiscalit\u00e9, Classement", news: false },
+          { file: 'articles/fr/investissement/investir-10000-euros-2026-strategies.md', title: "Investir 10 000\u20ac en 2026 : 5 Strat\u00e9gies", news: false },
+          { file: 'articles/fr/investissement/pea-vs-assurance-vie-vs-cto-2026.md', title: "PEA vs Assurance Vie vs CTO : Quel Compte ?", news: false },
+          { file: 'articles/fr/investissement/actions-dividendes-2026-revenu-passif.md', title: "Actions \u00e0 Dividendes : 10 Valeurs Revenu Passif", news: false },
+          { file: 'articles/fr/investissement/correction-actions-ia-2026-bulle-opportunite.md', title: "Correction Actions IA : Bulle ou Opportunit\u00e9 ?", news: true },
+          { file: 'articles/fr/investissement/or-record-2800-dollars-2026-investir.md', title: "L\u2019Or \u00e0 2 800$ : Faut-il Encore Investir ?", news: true },
+          { file: 'articles/fr/investissement/immobilier-locatif-ville-par-ville-2026.md', title: "Immobilier Locatif 2026 : Ville par Ville", news: false },
+          { file: 'articles/fr/investissement/livret-a-ldds-lep-epargne-2026.md', title: "Livret A, LDDS, LEP 2026 : O\u00f9 Placer Son \u00c9pargne ?", news: false },
+          { file: 'articles/fr/investissement/crowdfunding-immobilier-rendements-2026.md', title: "Crowdfunding Immobilier 2026 : Rendements R\u00e9els", news: false },
+          { file: 'articles/fr/investissement/investir-20-ans-plan-action-2026.md', title: "Investir \u00e0 20 Ans en 2026 : Le Plan Optimal", news: false },
+          { file: 'articles/fr/investissement/obligations-rendement-sans-risque-2026.md', title: "Obligations 2026 : Le Retour du Rendement Sans Risque", news: false },
+          { file: 'articles/fr/investissement/investir-montres-luxe-rolex-2026.md', title: "Montres de Luxe 2026 : Rolex, Patek, AP comme Actifs", news: false },
+          { file: 'articles/fr/investissement/trading-vs-investissement-long-terme-2026.md', title: "Trading vs Investissement Long Terme en 2026", news: false },
+        ]
+      }
+    };
+    // EN uses same FR articles — UI-only translation
+    ARTICLES.en = ARTICLES.fr;
+
+    const CAT_META = {
+      crypto:          { label: 'Crypto',          color: '#ea580c', img: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=600&h=300&fit=crop' },
+      credit:          { label: 'Cr\u00e9dit',     color: '#2563eb', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop' },
+      assurance:       { label: 'Assurance',        color: '#059669', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=300&fit=crop' },
+      investissement:  { label: 'Investissement',   color: '#7c3aed', img: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=300&fit=crop' },
+    };
+
+    const THUMBS = {
+      crypto: [
+        'https://images.unsplash.com/photo-1622630998477-20aa696ecb05?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1516245834210-c4c142787335?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1605792657660-596af9009e82?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1625806786037-2af608423424?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1631603090989-93f9ef6f9d80?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1629339942248-45d4b10c8c2f?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1609554496796-c345a5335ceb?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=400&h=250&fit=crop',
+      ],
+      credit: [
+        'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=250&fit=crop',
+      ],
+      assurance: [
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=400&h=250&fit=crop',
+      ],
+      investissement: [
+        'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1549421263-5ec394a5ad4c?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1617870952348-7524edfb61b7?w=400&h=250&fit=crop',
+      ],
+    };
+
+    let lang = 'fr';
+    let cat = 'all';
+
+    // Thematic sections config — engaging titles instead of raw category names
+    const THEMES = {
+      fr: [
+        {
+          id: 'comment-investir',
+          title: 'Comment <span>investir</span> intelligemment',
+          subtitle: 'Stratégies concrètes pour faire fructifier votre argent en 2026',
+          cats: ['investissement'],
+          layout: 'feature'
+        },
+        {
+          id: 'monde-crypto',
+          title: 'Comprendre les <span>cryptos</span>',
+          subtitle: 'Bitcoin, Ethereum, DeFi — décryptage sans jargon',
+          cats: ['crypto'],
+          layout: 'scroll'
+        },
+        {
+          id: 'financer-projets',
+          title: 'Financer <span>vos projets</span>',
+          subtitle: 'Crédit immobilier, prêt personnel, rachat — trouvez le meilleur taux',
+          cats: ['credit'],
+          layout: 'feature'
+        },
+        {
+          id: 'proteger-patrimoine',
+          title: 'Protéger votre <span>patrimoine</span>',
+          subtitle: 'Assurance vie, habitation, auto — les bons contrats au bon prix',
+          cats: ['assurance'],
+          layout: 'scroll'
+        },
+      ],
+    };
+    THEMES.en = THEMES.fr;
+
+    function goHome() {
+      document.getElementById('articleView').className = 'article-view';
+      document.getElementById('homeView').style.display = '';
+      window.scrollTo(0, 0);
+    }
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function render() {
+      const data = ARTICLES[lang];
+      const themes = THEMES[lang];
+      const container = document.getElementById('mainContent');
+      container.innerHTML = '';
+
+      // If filtering by category, just show that category's articles as scroll
+      if (cat !== 'all') {
+        const catArticles = data[cat] || [];
+        const sec = document.createElement('section');
+        sec.className = 'theme-section';
+        sec.style.padding = '2rem 0 0';
+        const catLabel = CAT_META[cat].label;
+        sec.innerHTML = `<div class="theme-header"><div><h2>${catLabel}</h2><p class="theme-subtitle">${catArticles.length} articles</p></div></div>`;
+        const scroll = document.createElement('div');
+        scroll.className = 'theme-scroll';
+        catArticles.forEach((a, i) => {
+          const thumb = THUMBS[cat] ? THUMBS[cat][i % THUMBS[cat].length] : '';
+          const card = document.createElement('a');
+          card.href = '#';
+          card.className = 'pill-card fade-up';
+          card.style.animationDelay = `${i * 0.03}s`;
+          card.onclick = (e) => { e.preventDefault(); openArticle(a.file); };
+          card.innerHTML = `
+            <img src="${thumb}" alt="" loading="lazy">
+            <div class="pill-card-body">
+              <div class="pill-card-cat" style="color:${CAT_META[cat].color}">${CAT_META[cat].label}</div>
+              <h3>${a.title}</h3>
+            </div>`;
+          scroll.appendChild(card);
+        });
+        sec.appendChild(scroll);
+        container.appendChild(sec);
+        return;
+      }
+
+      // Render thematic sections
+      themes.forEach((theme, idx) => {
+        // Gather all articles for this theme's categories
+        let articles = [];
+        theme.cats.forEach(c => {
+          if (data[c]) {
+            data[c].forEach(a => articles.push({ ...a, cat: c }));
+          }
+        });
+        if (articles.length === 0) return;
+
+        const sec = document.createElement('section');
+        sec.className = 'theme-section fade-up';
+        sec.style.animationDelay = `${idx * 0.08}s`;
+
+        // Ad between sections (after 1st and 3rd)
+        if (idx === 1 || idx === 3) {
+          const ad = document.createElement('div');
+          ad.className = 'ad-banner ad-banner-infeed';
+          ad.style.maxWidth = 'var(--container)';
+          ad.style.margin = '0 auto';
+          ad.innerHTML = `<ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-8962636370487349" data-ad-slot="auto" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>`;
+          setTimeout(() => { try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {} }, 100);
+          container.appendChild(ad);
+        }
+
+        if (theme.layout === 'feature') {
+          // Feature layout: 1 big card + 3 side cards
+          const main = articles[0];
+          const side = articles.slice(1, 4);
+          const rest = articles.slice(4);
+
+          sec.innerHTML = `
+            <div class="theme-header">
+              <div>
+                <h2>${theme.title}</h2>
+                <p class="theme-subtitle">${theme.subtitle}</p>
+              </div>
+            </div>
+            <div class="theme-feature">
+              <a href="#" class="theme-feature-main" onclick="event.preventDefault();openArticle('${main.file}')">
+                <img src="${THUMBS[main.cat] ? THUMBS[main.cat][0] : ''}" alt="" loading="lazy">
+                <div class="tfo"></div>
+                <div class="tfc">
+                  <span class="tag" style="background:${CAT_META[main.cat].color}">${CAT_META[main.cat].label}</span>
+                  <h3>${main.title}</h3>
+                </div>
+              </a>
+              <div class="theme-feature-side">
+                ${side.map((a, i) => `
+                  <a href="#" class="theme-feature-side-card" onclick="event.preventDefault();openArticle('${a.file}')">
+                    <img src="${THUMBS[a.cat] ? THUMBS[a.cat][(i+1) % THUMBS[a.cat].length] : ''}" alt="" loading="lazy">
+                    <div class="tsc-body">
+                      <div class="tsc-cat" style="color:${CAT_META[a.cat].color}">${CAT_META[a.cat].label}</div>
+                      <h4>${a.title}</h4>
+                    </div>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+
+          // Remaining articles as horizontal scroll
+          if (rest.length > 0) {
+            const scroll = document.createElement('div');
+            scroll.className = 'theme-scroll';
+            scroll.style.marginTop = '1.25rem';
+            rest.forEach((a, i) => {
+              const card = document.createElement('a');
+              card.href = '#';
+              card.className = 'pill-card';
+              card.onclick = (e) => { e.preventDefault(); openArticle(a.file); };
+              const thumb = THUMBS[a.cat] ? THUMBS[a.cat][(i+4) % THUMBS[a.cat].length] : '';
+              card.innerHTML = `
+                <img src="${thumb}" alt="" loading="lazy">
+                <div class="pill-card-body">
+                  <div class="pill-card-cat" style="color:${CAT_META[a.cat].color}">${CAT_META[a.cat].label}</div>
+                  <h3>${a.title}</h3>
+                </div>`;
+              scroll.appendChild(card);
+            });
+            sec.appendChild(scroll);
+          }
+
+        } else {
+          // Scroll layout: header + horizontal scroll cards
+          sec.innerHTML = `
+            <div class="theme-header">
+              <div>
+                <h2>${theme.title}</h2>
+                <p class="theme-subtitle">${theme.subtitle}</p>
+              </div>
+            </div>
+          `;
+          const scroll = document.createElement('div');
+          scroll.className = 'theme-scroll';
+          articles.forEach((a, i) => {
+            const card = document.createElement('a');
+            card.href = '#';
+            card.className = 'pill-card';
+            card.onclick = (e) => { e.preventDefault(); openArticle(a.file); };
+            const thumb = THUMBS[a.cat] ? THUMBS[a.cat][i % THUMBS[a.cat].length] : '';
+            card.innerHTML = `
+              <img src="${thumb}" alt="" loading="lazy">
+              <div class="pill-card-body">
+                <div class="pill-card-cat" style="color:${CAT_META[a.cat].color}">${CAT_META[a.cat].label}</div>
+                <h3>${a.title}</h3>
+              </div>`;
+            scroll.appendChild(card);
+          });
+          sec.appendChild(scroll);
+        }
+
+        container.appendChild(sec);
+
+        // Divider
+        if (idx < themes.length - 1) {
+          const div = document.createElement('div');
+          div.className = 'theme-divider';
+          div.innerHTML = '<div class="theme-divider-line"></div>';
+          container.appendChild(div);
+        }
+      });
+    }
+
+    async function openArticle(file) {
+      const res = await fetch(file);
+      let md = await res.text();
+      md = md.replace(/^\s*---[\s\S]*?---\s*/, '');
+      // Strip confidential metadata lines (CPC, keywords, category, language, length)
+      md = md.replace(/\*\*Cat[eé]gorie\s*:\*\*[^\n]*\n/gi, '');
+      md = md.replace(/\*\*Langue\s*:\*\*[^\n]*\n/gi, '');
+      md = md.replace(/\*\*CPC[^\n]*\n/gi, '');
+      md = md.replace(/\*\*Mots?[- ]cl[eé]s?\s*:\*\*[^\n]*\n/gi, '');
+      md = md.replace(/\*\*Longueur\s*:\*\*[^\n]*\n/gi, '');
+      md = md.replace(/\*\*Meta Title\s*:\*\*[^\n]*\n/gi, '');
+      md = md.replace(/\*\*Meta Description\s*:\*\*[^\n]*\n/gi, '');
+      md = md.replace(/\[AD_SLOT_\d+\]/g, '<div class="ad-placeholder"><ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-8962636370487349" data-ad-slot="auto" data-ad-layout="in-article" data-ad-format="fluid" data-full-width-responsive="true"></ins></div>');
+
+      // Find current article's category
+      const data = ARTICLES[lang];
+      let currentCat = null;
+      Object.keys(data).forEach(c => {
+        if (data[c].some(a => a.file === file)) currentCat = c;
+      });
+
+      // Build related articles (same category, excluding current, random 3)
+      let related = [];
+      if (currentCat && data[currentCat]) {
+        const pool = data[currentCat].filter(a => a.file !== file);
+        // Shuffle and pick 3
+        for (let i = pool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [pool[i], pool[j]] = [pool[j], pool[i]];
+        }
+        related = pool.slice(0, 3);
+      }
+
+      // If less than 3, fill from other categories
+      if (related.length < 3) {
+        const otherCats = Object.keys(data).filter(c => c !== currentCat);
+        otherCats.forEach(c => {
+          if (related.length >= 3) return;
+          data[c].filter(a => a.file !== file).forEach(a => {
+            if (related.length < 3) related.push({ ...a, cat: c });
+          });
+        });
+      }
+
+      let relatedHTML = '';
+      if (related.length > 0) {
+        const relTitle = lang === 'fr' ? '\u00c0 lire aussi' : 'You might also like';
+        relatedHTML = `<div class="related-section"><h3>${relTitle}</h3><div class="related-grid">`;
+        related.forEach((a, i) => {
+          const rCat = a.cat || currentCat;
+          const thumb = THUMBS[rCat] ? THUMBS[rCat][i % THUMBS[rCat].length] : '';
+          relatedHTML += `
+            <a href="#" class="related-card" onclick="event.preventDefault();openArticle('${a.file}')">
+              <img src="${thumb}" alt="" loading="lazy">
+              <div class="related-card-body">
+                <div class="related-card-cat" style="color:${CAT_META[rCat].color}">${CAT_META[rCat].label}</div>
+                <h4>${a.title}</h4>
+              </div>
+            </a>`;
+        });
+        relatedHTML += '</div></div>';
+      }
+
+      let parsedHTML = marked.parse(md);
+      // Wrap tables in scrollable container for mobile
+      parsedHTML = parsedHTML.replace(/<table>/g, '<div class="table-wrapper"><table>').replace(/<\/table>/g, '</table></div>');
+
+      // Extract FAQ items for JSON-LD (looks for ## FAQ or ## Questions section)
+      const faqRegex = /###\s*(.+?)\n\n([\s\S]*?)(?=\n###|\n## |\n---|\n\[AD_SLOT|$)/g;
+      const faqSection = md.match(/## (?:FAQ|Questions fr[eé]quentes|Frequently Asked Questions)[\s\S]*/i);
+      let faqJsonLd = '';
+      if (faqSection) {
+        const faqs = [];
+        let m;
+        const faqText = faqSection[0];
+        const faqItemRegex = /###\s*(.+?)\n\n([\s\S]*?)(?=\n###|\n## |\n---|\n\[AD_SLOT|$)/g;
+        while ((m = faqItemRegex.exec(faqText)) !== null) {
+          faqs.push({ q: m[1].trim(), a: m[2].trim().replace(/\n/g, ' ') });
+        }
+        if (faqs.length > 0) {
+          const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
+          };
+          faqJsonLd = '<script type="application/ld+json">' + JSON.stringify(schema) + '<\/script>';
+        }
+      }
+
+      document.getElementById('articleContent').innerHTML = faqJsonLd + parsedHTML + relatedHTML;
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('articleView').className = 'article-view active';
+      window.scrollTo(0, 0);
+      // Push AdSense ads injected in article
+      setTimeout(() => {
+        document.querySelectorAll('#articleContent .adsbygoogle').forEach(() => {
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        });
+      }, 200);
+    }
+
+    document.getElementById('backBtn').onclick = goHome;
+
+    // ============ PAGES (footer links) ============
+    const PAGES = {
+      fr: {
+        learn: 'pages/fr/apprendre-a-investir.md',
+        simulator: 'pages/fr/simulateur-credit.md',
+        glossary: 'pages/fr/glossaire.md',
+        faq: 'pages/fr/faq.md',
+        legal: 'pages/fr/mentions-legales.md',
+        privacy: 'pages/fr/politique-confidentialite.md',
+        terms: 'pages/fr/cgu.md',
+        contact: 'pages/fr/contact.md',
+      },
+      en: {
+        learn: 'pages/fr/apprendre-a-investir.md',
+        simulator: 'pages/fr/simulateur-credit.md',
+        glossary: 'pages/fr/glossaire.md',
+        faq: 'pages/fr/faq.md',
+        legal: 'pages/fr/mentions-legales.md',
+        privacy: 'pages/fr/politique-confidentialite.md',
+        terms: 'pages/fr/cgu.md',
+        contact: 'pages/fr/contact.md',
+      }
+    };
+
+    async function openPage(pageKey) {
+      const file = PAGES[lang][pageKey];
+      if (!file) return;
+      const res = await fetch(file);
+      let md = await res.text();
+      md = md.replace(/^\s*---[\s\S]*?---\s*/, '');
+      let parsedHTML = marked.parse(md);
+      parsedHTML = parsedHTML.replace(/<table>/g, '<div class="table-wrapper"><table>').replace(/<\/table>/g, '</table></div>');
+      document.getElementById('articleContent').innerHTML = parsedHTML;
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('articleView').className = 'article-view active';
+      window.scrollTo(0, 0);
+      // Execute any inline scripts (for simulators/forms)
+      document.getElementById('articleContent').querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.parentNode.replaceChild(s, old);
+      });
+    }
+
+    // Language
+    function updateFooterLang() {
+      const fr = lang === 'fr';
+      document.getElementById('footerDesc').textContent = fr
+        ? 'Analyses indépendantes sur la finance personnelle. Crypto, crédit, assurance et investissement décryptés pour vous.'
+        : 'Independent personal finance analysis. Crypto, credit, insurance and investing decoded for you.';
+      document.getElementById('footerCatTitle').textContent = fr ? 'Catégories' : 'Categories';
+      document.getElementById('footerCredit').textContent = fr ? 'Crédit' : 'Credit';
+      document.getElementById('footerAssurance').textContent = fr ? 'Assurance' : 'Insurance';
+      document.getElementById('footerInvest').textContent = fr ? 'Investissement' : 'Investing';
+      document.getElementById('footerResTitle').textContent = fr ? 'Ressources' : 'Resources';
+      document.getElementById('footerLearn').textContent = fr ? 'Apprendre à investir' : 'Learn to invest';
+      document.getElementById('footerSim').textContent = fr ? 'Simulateur de crédit' : 'Loan calculator';
+      document.getElementById('footerGlossary').textContent = fr ? 'Glossaire' : 'Glossary';
+      document.getElementById('footerLegalTitle').textContent = fr ? 'Légal' : 'Legal';
+      document.getElementById('footerLegal').textContent = fr ? 'Mentions légales' : 'Legal notice';
+      document.getElementById('footerPrivacy').textContent = fr ? 'Politique de confidentialité' : 'Privacy policy';
+      document.getElementById('footerTerms').textContent = fr ? 'CGU' : 'Terms of use';
+      document.getElementById('footerRights').textContent = fr ? 'Tous droits réservés.' : 'All rights reserved.';
+      document.getElementById('footerDisclaimer').textContent = fr
+        ? 'Les informations présentées ne constituent pas des conseils financiers.'
+        : 'The information presented does not constitute financial advice.';
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        lang = btn.dataset.lang;
+        featuredIdx = 0;
+        renderFeaturedHero();
+        resetFeaturedTimer();
+        render();
+        updateFooterLang();
+      };
+    });
+
+    // Category nav
+    document.getElementById('navBar').onclick = (e) => {
+      const link = e.target.closest('.nav-link');
+      if (!link) return;
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      cat = link.dataset.cat;
+      goHome();
+      render();
+    };
+
+    // (old carousel removed — articles now in thematic sections)
+
+    // ============ FEATURED HERO (rotating) ============
+    const FEATURED_ARTICLES = {
+      fr: [
+        { file: 'articles/fr/crypto/bitcoin-halving-2026-impact-cours.md', title: "Bitcoin Halving 2026 : Faut-il Acheter Avant ou Apr\u00e8s ?", desc: "Analyse compl\u00e8te de l'impact du halving sur le cours du Bitcoin et strat\u00e9gies d'investissement.", cat: 'crypto', img: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=1200&h=500&fit=crop' },
+        { file: 'articles/fr/credit/taux-immobilier-mars-2026-comparatif-banques.md', title: "Taux Immobilier Mars 2026 : Comparatif Complet des Banques", desc: "Les taux baissent encore. Quelle banque propose la meilleure offre ce mois-ci ?", cat: 'credit', img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=500&fit=crop' },
+        { file: 'articles/fr/assurance/assurance-vie-2026-fonds-euros-rendement.md', title: "Assurance Vie 2026 : Les Fonds Euros Qui Rapportent Vraiment", desc: "Classement exclusif des meilleurs fonds euros et unit\u00e9s de compte pour votre \u00e9pargne.", cat: 'assurance', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=500&fit=crop' },
+        { file: 'articles/fr/investissement/investir-10000-euros-2026-strategies.md', title: "Investir 10 000\u20ac en 2026 : Les 5 Meilleures Strat\u00e9gies", desc: "ETF, SCPI, crypto, obligations\u2026 comment r\u00e9partir intelligemment votre capital.", cat: 'investissement', img: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1200&h=500&fit=crop' },
+      ],
+    };
+    FEATURED_ARTICLES.en = FEATURED_ARTICLES.fr;
+
+    let featuredIdx = 0;
+    let featuredTimer = null;
+
+    function renderFeaturedHero() {
+      const items = FEATURED_ARTICLES[lang];
+      const hero = document.getElementById('featuredHero');
+      const item = items[featuredIdx % items.length];
+      hero.innerHTML = `
+        <img src="${item.img}" alt="${item.title}">
+        <div class="featured-hero-overlay"></div>
+        <div class="featured-hero-content">
+          <span class="featured-hero-tag" style="background:${CAT_META[item.cat].color}">${CAT_META[item.cat].label}</span>
+          <h2>${item.title}</h2>
+          <p>${item.desc}</p>
+        </div>
+        <div class="featured-hero-dots">
+          ${items.map((_, i) => `<button class="featured-hero-dot${i === featuredIdx % items.length ? ' active' : ''}" onclick="goToFeatured(${i})"></button>`).join('')}
+        </div>
+      `;
+      hero.onclick = (e) => {
+        if (e.target.closest('.featured-hero-dot')) return;
+        openArticle(item.file);
+      };
+    }
+
+    function goToFeatured(idx) {
+      featuredIdx = idx;
+      renderFeaturedHero();
+      resetFeaturedTimer();
+    }
+
+    function resetFeaturedTimer() {
+      if (featuredTimer) clearInterval(featuredTimer);
+      featuredTimer = setInterval(() => {
+        featuredIdx++;
+        renderFeaturedHero();
+      }, 6000);
+    }
+
+    renderFeaturedHero();
+    resetFeaturedTimer();
+    render();
+  </script>
+</body>
+</html>
