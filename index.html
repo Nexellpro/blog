@@ -99,8 +99,8 @@
     .header-nav-btn {
       padding: 0.4rem 0.9rem;
       background: transparent;
-      border: 1px solid rgba(37, 99, 235, 0.3);
-      color: #2563eb;
+      border: 1px solid rgba(45, 52, 54, 0.3);
+      color: #2d3436;
       border-radius: 8px;
       font-size: 0.8rem;
       font-weight: 600;
@@ -111,16 +111,10 @@
       font-family: var(--font);
     }
     .header-nav-btn:hover {
-      background: rgba(37, 99, 235, 0.08);
-      border-color: #2563eb;
-      transform: translateY(-2px);
-    }
-    .header-nav-btn.simulator {
-      border-color: #2d3436;
-      color: #2d3436;
-    }
-    .header-nav-btn.simulator:hover {
       background: rgba(45, 52, 54, 0.08);
+      border-color: #2d3436;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(45, 52, 54, 0.15);
     }
 
     /* Show more button */
@@ -998,9 +992,11 @@
         <p style="margin:0.15rem 0 0 0;color:#a3a3b3;font-size:0.75rem;font-weight:500;letter-spacing:0.5px">Analyses indépendantes</p>
       </div>
       <div class="header-nav">
-        <a class="header-nav-btn" href="#" onclick="scrollToTheme('monde-crypto'); return false;">Cryptos</a>
-        <a class="header-nav-btn" href="#" onclick="scrollToTheme('comment-investir'); return false;">Investir</a>
-        <a class="header-nav-btn" href="#" onclick="openPage('simulateur-credit'); return false;">Simulateur</a>
+        <a class="header-nav-btn" href="#" onclick="openPage('simulator'); return false;">📊 Simulateur</a>
+        <a class="header-nav-btn" href="#" onclick="openPage('learn'); return false;">📚 Guides</a>
+        <a class="header-nav-btn" href="#" onclick="openPage('glossary'); return false;">📖 Glossaire</a>
+        <a class="header-nav-btn" href="#" onclick="openPage('faq'); return false;">❓ FAQ</a>
+        <a class="header-nav-btn" href="#" onclick="openPage('legal'); return false;">⚖️ Légal</a>
       </div>
       <div class="header-search">
         <input type="text" id="searchInput" placeholder="Chercher un article..." oninput="handleSearch()">
