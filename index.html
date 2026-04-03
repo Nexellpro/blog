@@ -88,12 +88,39 @@
       display: none;
     }
 
-    /* Nav hidden - use mega menu instead */
-    .nav-links {
-      display: none;
+    /* Header Nav */
+    .header-nav {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 1.5rem;
+      flex-wrap: wrap;
     }
-    .nav-link {
-      display: none;
+    .header-nav-btn {
+      padding: 0.4rem 0.9rem;
+      background: transparent;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: #2563eb;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-family: var(--font);
+    }
+    .header-nav-btn:hover {
+      background: rgba(37, 99, 235, 0.08);
+      border-color: #2563eb;
+      transform: translateY(-2px);
+    }
+    .header-nav-btn.simulator {
+      border-color: #2d3436;
+      color: #2d3436;
+    }
+    .header-nav-btn.simulator:hover {
+      background: rgba(45, 52, 54, 0.08);
     }
 
     /* Search bar */
@@ -916,6 +943,26 @@
     .pulsing {
       animation: pulse 2s ease-in-out infinite;
     }
+
+    /* Responsive header nav */
+    @media (max-width: 1024px) {
+      .header-nav {
+        gap: 0.3rem;
+      }
+      .header-nav-btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .header-nav {
+        display: none;
+      }
+      .header-search {
+        flex: 0 1 200px;
+        margin-right: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -926,6 +973,11 @@
       <div class="logo-section" style="display:flex;flex-direction:column;align-items:flex-start">
         <a class="logo" href="#" onclick="goHome()">Le Petit Financier</a>
         <p style="margin:0.15rem 0 0 0;color:#a3a3b3;font-size:0.75rem;font-weight:500;letter-spacing:0.5px">Analyses indépendantes</p>
+      </div>
+      <div class="header-nav">
+        <a class="header-nav-btn" href="#" onclick="scrollToTheme('monde-crypto'); return false;">Cryptos</a>
+        <a class="header-nav-btn" href="#" onclick="scrollToTheme('comment-investir'); return false;">Investir</a>
+        <a class="header-nav-btn" href="#" onclick="openPage('simulateur-credit'); return false;">Simulateur</a>
       </div>
       <div class="header-search">
         <input type="text" id="searchInput" placeholder="Chercher un article..." oninput="handleSearch()">
@@ -1209,7 +1261,18 @@
       document.getElementById('articleView').className = 'article-view';
       document.getElementById('homeView').style.display = 'block';
       document.getElementById('searchView').style.display = 'none';
+      document.getElementById('searchInput').value = '';
       window.scrollTo(0, 0);
+    }
+
+    function scrollToTheme(themeId) {
+      goHome();
+      setTimeout(() => {
+        const section = document.querySelector(`[data-theme-id="${themeId}"]`);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
 
     function handleSearch() {
@@ -1327,6 +1390,7 @@
 
         const sec = document.createElement('section');
         sec.className = 'theme-section fade-up';
+        sec.setAttribute('data-theme-id', theme.id);
         sec.style.animationDelay = `${idx * 0.08}s`;
 
         // Ad between sections (after 1st and 3rd)
