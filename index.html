@@ -2838,10 +2838,7 @@
           ${items.map((_, i) => `<button class="featured-hero-dot${i === featuredIdx % items.length ? ' active' : ''}" onclick="goToFeatured(${i})"></button>`).join('')}
         </div>
       `;
-      hero.onclick = (e) => {
-        if (e.target.closest('.featured-hero-dot')) return;
-        openArticle(item.file);
-      };
+      hero.style.cursor = 'default';
     }
 
     function goToFeatured(idx) {
