@@ -2071,9 +2071,24 @@
     // Listen for URL changes
     window.addEventListener('hashchange', handleRoute);
 
+    // Load Google AdSense ads
+    function loadAds() {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch(e) {
+        console.log('AdSense loading skipped');
+      }
+    }
+
     // Handle initial load
     document.addEventListener('DOMContentLoaded', () => {
       handleRoute();
+      setTimeout(loadAds, 500);
+    });
+
+    // Load ads after navigation
+    window.addEventListener('hashchange', () => {
+      setTimeout(loadAds, 300);
     });
 
     // Thematic sections config — engaging titles instead of raw category names
@@ -2145,6 +2160,7 @@
       document.getElementById('searchView').style.display = 'none';
       document.getElementById('searchInput').value = '';
       window.scrollTo(0, 0);
+      setTimeout(loadAds, 300);
     }
 
     function scrollToTheme(themeId) {
