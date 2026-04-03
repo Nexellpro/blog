@@ -79,6 +79,7 @@
     }
     .logo:hover {
       color: #2563eb;
+      transform: scale(1.05);
     }
     .logo img {
       display: none;
@@ -115,11 +116,16 @@
     .header-search input::placeholder {
       color: #94a3b8;
     }
+    .header-search input:hover {
+      transform: scale(1.02);
+      background: rgba(0,0,0,0.04);
+    }
     .header-search input:focus {
       outline: none;
       border-color: #2563eb;
       background: rgba(37, 99, 235, 0.03);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      transform: scale(1.03);
     }
 
     /* Header CTA buttons */
@@ -507,9 +513,12 @@
       flex-direction: column;
       height: 100%;
     }
+    .pill-card {
+      transition: all 0.3s ease;
+    }
     .pill-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      transform: translateY(-8px);
     }
     .pill-card img {
       width: 100%;
@@ -877,6 +886,36 @@
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .slide-in-left {
+      animation: slideInLeft 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    .slide-in-up {
+      animation: slideInUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+    .pulsing {
+      animation: pulse 2s ease-in-out infinite;
+    }
   </style>
 </head>
 <body>
@@ -884,9 +923,12 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a class="logo" href="#" onclick="goHome()">Le Petit Financier</a>
+      <div class="logo-section" style="display:flex;flex-direction:column;align-items:flex-start">
+        <a class="logo" href="#" onclick="goHome()">Le Petit Financier</a>
+        <p style="margin:0.15rem 0 0 0;color:#a3a3b3;font-size:0.75rem;font-weight:500;letter-spacing:0.5px">Analyses indépendantes</p>
+      </div>
       <div class="header-search">
-        <input type="text" placeholder="Chercher un article...">
+        <input type="text" id="searchInput" placeholder="Chercher un article..." oninput="handleSearch()">
       </div>
     </div>
   </header>
@@ -908,6 +950,19 @@
 
     <!-- THEMATIC SECTIONS -->
     <div class="content" id="mainContent"></div>
+  </div>
+
+  <!-- SEARCH RESULTS VIEW -->
+  <div id="searchView" style="display:none">
+    <div class="content">
+      <div style="padding:2rem 0;max-width:1400px;margin:0 auto">
+        <div style="padding:0 2rem">
+          <h2 style="margin-bottom:1rem">Résultats de recherche</h2>
+          <p id="searchCount" style="color:var(--text-muted);margin-bottom:2rem"></p>
+        </div>
+        <div id="searchResults" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;padding:0 2rem"></div>
+      </div>
+    </div>
   </div>
 
   <!-- ARTICLE VIEW -->
@@ -1152,7 +1207,65 @@
 
     function goHome() {
       document.getElementById('articleView').className = 'article-view';
-      document.getElementById('homeView').style.display = '';
+      document.getElementById('homeView').style.display = 'block';
+      document.getElementById('searchView').style.display = 'none';
+      window.scrollTo(0, 0);
+    }
+
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const data = ARTICLES[lang];
+      console.log('Search query:', query, 'Lang:', lang, 'Data keys:', Object.keys(data));
+
+      if (!query) {
+        document.getElementById('homeView').style.display = 'block';
+        document.getElementById('searchView').style.display = 'none';
+        return;
+      }
+
+      // Filtrer tous les articles
+      let results = [];
+      try {
+        Object.keys(data).forEach(cat => {
+          if (data[cat] && Array.isArray(data[cat])) {
+            data[cat].forEach(article => {
+              if (article.title.toLowerCase().includes(query)) {
+                results.push({ ...article, cat });
+              }
+            });
+          }
+        });
+      } catch (e) {
+        console.error('Search error:', e);
+      }
+      console.log('Results found:', results.length);
+
+      // Afficher les résultats
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('searchView').style.display = 'block';
+
+      const resultDiv = document.getElementById('searchResults');
+      resultDiv.innerHTML = '';
+
+      document.getElementById('searchCount').textContent =
+        results.length === 0 ? 'Aucun article trouvé' : `${results.length} résultat${results.length > 1 ? 's' : ''}`;
+
+      results.forEach((article, i) => {
+        const thumb = THUMBS[article.cat] ? THUMBS[article.cat][i % THUMBS[article.cat].length] : '';
+        const card = document.createElement('a');
+        card.href = '#';
+        card.className = 'pill-card fade-up';
+        card.style.animationDelay = `${i * 0.03}s`;
+        card.onclick = (e) => { e.preventDefault(); openArticle(article.file); };
+        card.innerHTML = `
+          <img src="${thumb}" alt="" loading="lazy">
+          <div class="pill-card-body">
+            <div class="pill-card-cat" style="color:${CAT_META[article.cat].color}">${CAT_META[article.cat].label}</div>
+            <h3>${article.title}</h3>
+          </div>`;
+        resultDiv.appendChild(card);
+      });
+
       window.scrollTo(0, 0);
     }
 
