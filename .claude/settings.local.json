@@ -41,7 +41,8 @@
       "Read(//c/Users/Marou/**)",
       "Bash(xargs -I {} sh -c 'cd {} && pwd')",
       "Bash(git commit:*)",
-      "Bash(xargs -r kill -9)"
+      "Bash(xargs -r kill -9)",
+      "Bash(curl -s -I https://nexellpro.github.io/blog/)"
     ]
   }
 }

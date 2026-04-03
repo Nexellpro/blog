@@ -606,6 +606,13 @@
     .ad-banner-leaderboard .ad-fallback { min-height: 100px; }
     .ad-banner-infeed { padding: 0.75rem 1.5rem; }
     .ad-banner-infeed .ad-fallback { min-height: 120px; border-radius: var(--radius); }
+    .ad-banner-footer {
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
 
     /* In-article ads */
     .ad-placeholder {
@@ -1755,7 +1762,7 @@
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-8962636370487349"
-           data-ad-slot="8929191343"
+           data-ad-slot="1234567801"
            data-ad-format="horizontal"
            data-full-width-responsive="true"></ins>
     </div>
@@ -1788,7 +1795,7 @@
           <ins class="adsbygoogle"
                style="display:block"
                data-ad-client="ca-pub-8962636370487349"
-               data-ad-slot="1234567890"
+               data-ad-slot="1234567802"
                data-ad-format="vertical"
                data-full-width-responsive="false"></ins>
         </div>
@@ -1803,7 +1810,7 @@
           <ins class="adsbygoogle"
                style="display:block"
                data-ad-client="ca-pub-8962636370487349"
-               data-ad-slot="0987654321"
+               data-ad-slot="1234567803"
                data-ad-format="vertical"
                data-full-width-responsive="false"></ins>
         </div>
@@ -1877,6 +1884,16 @@
       <input type="email" placeholder="Email" required>
       <button type="submit">S'inscrire</button>
     </form>
+  </div>
+
+  <!-- AD: Footer Banner -->
+  <div class="ad-banner ad-banner-footer">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8962636370487349"
+         data-ad-slot="1234567805"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
   </div>
 
   <footer>
@@ -2356,7 +2373,7 @@
           ad.className = 'ad-banner ad-banner-infeed';
           ad.style.maxWidth = 'var(--container)';
           ad.style.margin = '0 auto';
-          ad.innerHTML = `<ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-8962636370487349" data-ad-slot="8929191343" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>`;
+          ad.innerHTML = `<ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-8962636370487349" data-ad-slot="1234567804" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>`;
           setTimeout(() => { try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {} }, 100);
           container.appendChild(ad);
         }
