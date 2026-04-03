@@ -878,15 +878,12 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a class="logo" href="#" onclick="goHome()" style="color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.15rem">Le Petit Financier</a>
-      <nav class="nav-links" id="navBar">
-        <button class="nav-link active" data-cat="all">Tous</button>
-        <button class="nav-link" data-cat="crypto">Crypto</button>
-        <button class="nav-link" data-cat="credit">Cr&eacute;dit</button>
-        <button class="nav-link" data-cat="assurance">Assurance</button>
-        <button class="nav-link" data-cat="investissement">Investir</button>
-      </nav>
-      <div class="header-right">
+      <a class="logo" href="#" onclick="goHome()">Le Petit Financier</a>
+      <div class="header-search">
+        <input type="text" placeholder="Chercher un article..." id="searchInput" onkeyup="filterArticles()">
+      </div>
+      <div class="header-cta">
+        <a href="#" onclick="event.preventDefault();openPage('contact')" class="header-contact">Contact</a>
         <div class="lang-switch">
           <button class="lang-btn active" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="en">EN</button>
