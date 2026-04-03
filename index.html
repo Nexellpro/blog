@@ -1307,6 +1307,168 @@
       transform: translateY(0);
     }
 
+    /* ============ NEWSLETTER MODAL ============ */
+    .newsletter-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+    .newsletter-modal.active {
+      display: flex;
+    }
+    .newsletter-modal-content {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideInUp 0.4s ease;
+      position: relative;
+    }
+    .newsletter-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .newsletter-modal-close:hover {
+      color: var(--text);
+    }
+    .newsletter-modal-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .newsletter-modal-content p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ============ NEWSLETTER SIDEBAR ============ */
+    .newsletter-sidebar {
+      display: none;
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 280px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      border-radius: 16px;
+      padding: 1.5rem;
+      z-index: 60;
+      box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
+      color: white;
+      animation: slideInLeft 0.5s ease;
+    }
+    .newsletter-sidebar.active {
+      display: block;
+    }
+    .newsletter-sidebar h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .newsletter-sidebar p {
+      font-size: 0.85rem;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .newsletter-sidebar input {
+      width: 100%;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      font-family: var(--font);
+      font-size: 0.85rem;
+    }
+    .newsletter-sidebar button {
+      width: 100%;
+      padding: 0.7rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font);
+      font-size: 0.85rem;
+    }
+    .newsletter-sidebar button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ============ NEWSLETTER MOBILE BANNER ============ */
+    .newsletter-mobile-banner {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      padding: 1.25rem 1rem;
+      z-index: 80;
+      color: white;
+      animation: slideInUp 0.4s ease;
+    }
+    .newsletter-mobile-banner.active {
+      display: block;
+    }
+    .newsletter-mobile-banner h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .newsletter-mobile-banner p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-bottom: 0.75rem;
+    }
+    .newsletter-mobile-banner-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .newsletter-mobile-banner input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font);
+    }
+    .newsletter-mobile-banner button {
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      font-size: 0.8rem;
+    }
+    .newsletter-mobile-banner button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
     /* ============ SHARE BUTTONS ============ */
     .share-section {
       display: flex;
@@ -1506,6 +1668,19 @@
         font-size: 0.85rem;
         padding: 0.5rem 0.8rem;
       }
+      /* Hide sidebar on mobile */
+      .newsletter-sidebar {
+        display: none !important;
+      }
+      /* Adjust modal for mobile */
+      .newsletter-modal-content {
+        width: 95%;
+        padding: 2rem 1.5rem;
+      }
+      /* Adjust dark mode toggle on mobile */
+      .dark-mode-toggle {
+        bottom: 4.5rem;
+      }
     }
   </style>
 </head>
@@ -1611,6 +1786,39 @@
 
   <!-- DARK MODE TOGGLE -->
   <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Basculer mode sombre" title="Mode sombre">🌙</button>
+
+  <!-- NEWSLETTER MODAL -->
+  <div class="newsletter-modal" id="newsletterModal">
+    <div class="newsletter-modal-content">
+      <button class="newsletter-modal-close" onclick="closeNewsletterModal()">✕</button>
+      <h2>📧 Recevez nos analyses</h2>
+      <p>Rejoignez 5000+ lecteurs qui optimisent leur portefeuille avec nos analyses indépendantes chaque semaine.</p>
+      <form class="newsletter-form" id="newsletterModalForm" onsubmit="handleNewsletterSubmit(event, 'modal')">
+        <input type="email" placeholder="Votre email" required>
+        <button type="submit">S'inscrire gratuitement</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER SIDEBAR (Desktop) -->
+  <aside class="newsletter-sidebar" id="newsletterSidebar">
+    <h3>📧 Notre Newsletter</h3>
+    <p>Conseils hebdomadaires en finance personnelle directement dans votre inbox.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, 'sidebar')">
+      <input type="email" placeholder="Votre email" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+  </aside>
+
+  <!-- NEWSLETTER MOBILE BANNER -->
+  <div class="newsletter-mobile-banner" id="newsletterMobileBanner">
+    <h3>Restez informé 📧</h3>
+    <p>Analyses hebdomadaires gratuites en finance</p>
+    <form class="newsletter-mobile-banner-form" onsubmit="handleNewsletterSubmit(event, 'mobile')">
+      <input type="email" placeholder="Email" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -2657,6 +2865,94 @@
         renderFeaturedHero();
       }, 6000);
     }
+
+    // ============ NEWSLETTER MODAL & SIDEBAR ============
+    let newsletterModalShown = localStorage.getItem('newsletter_modal_shown');
+
+    function closeNewsletterModal() {
+      const modal = document.getElementById('newsletterModal');
+      modal.classList.remove('active');
+      localStorage.setItem('newsletter_modal_shown', 'true');
+      setTimeout(() => {
+        showNewsletterSidebar();
+      }, 500);
+    }
+
+    function showNewsletterModal() {
+      if (newsletterModalShown || window.innerWidth < 768) return;
+      const modal = document.getElementById('newsletterModal');
+      setTimeout(() => {
+        modal.classList.add('active');
+        localStorage.setItem('newsletter_modal_shown', 'true');
+      }, 20000); // Show after 20 seconds
+    }
+
+    function showNewsletterSidebar() {
+      if (window.innerWidth >= 1024 && !localStorage.getItem('newsletter_sidebar_shown')) {
+        const sidebar = document.getElementById('newsletterSidebar');
+        sidebar.classList.add('active');
+        localStorage.setItem('newsletter_sidebar_shown', 'true');
+      }
+    }
+
+    function showNewsletterMobileBanner() {
+      if (window.innerWidth < 768 && !localStorage.getItem('newsletter_mobile_shown')) {
+        const banner = document.getElementById('newsletterMobileBanner');
+        setTimeout(() => {
+          banner.classList.add('active');
+          localStorage.setItem('newsletter_mobile_shown', 'true');
+        }, 15000); // Show after 15 seconds on mobile
+      }
+    }
+
+    function handleNewsletterSubmit(e, source) {
+      e.preventDefault();
+      const form = e.target;
+      const input = form.querySelector('input[type="email"]');
+      const btn = form.querySelector('button');
+
+      if (!input.value) return;
+
+      btn.disabled = true;
+      btn.textContent = source === 'sidebar' ? '✓ Inscrit!' : (source === 'mobile' ? '✓' : '✓ Inscription réussie!');
+
+      localStorage.setItem('newsletter_email', input.value);
+      localStorage.setItem('newsletter_source', source);
+
+      if (window.gtag) {
+        gtag('event', 'newsletter_signup', {
+          email_domain: input.value.split('@')[1],
+          source: source
+        });
+      }
+
+      setTimeout(() => {
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = source === 'sidebar' ? 'S\'inscrire' : (source === 'modal' ? 'S\'inscrire gratuitement' : 'S\'inscrire');
+
+        if (source === 'modal') closeNewsletterModal();
+        if (source === 'mobile') document.getElementById('newsletterMobileBanner').classList.remove('active');
+      }, 2000);
+    }
+
+    // Initialize newsletter features on page load
+    window.addEventListener('load', () => {
+      showNewsletterModal();
+      showNewsletterMobileBanner();
+      // Show sidebar after modal is closed or after 30 seconds
+      setTimeout(showNewsletterSidebar, 30000);
+    });
+
+    // Re-check sidebar visibility on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        showNewsletterSidebar();
+      } else {
+        const sidebar = document.getElementById('newsletterSidebar');
+        sidebar.classList.remove('active');
+      }
+    });
 
     console.log('Initializing...', { lang, hasArticles: !!ARTICLES[lang], hasThemes: !!THEMES[lang] });
     renderFeaturedHero();
