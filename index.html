@@ -1736,6 +1736,57 @@
         s.textContent = old.textContent;
         old.parentNode.replaceChild(s, old);
       });
+      // Initialize glossary search if it's the glossary page
+      if (pageKey === 'glossary') {
+        setupGlossarySearch();
+      }
+    }
+
+    function setupGlossarySearch() {
+      const searchInput = document.getElementById('glossSearch');
+      if (!searchInput) return;
+
+      // Store original HTML
+      const glossaryDiv = document.getElementById('glossaryContent');
+      if (!glossaryDiv) return;
+      const originalHTML = glossaryDiv.innerHTML;
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+
+        if (!query) {
+          glossaryDiv.innerHTML = originalHTML;
+          document.getElementById('glossSearchCount').style.display = 'none';
+          return;
+        }
+
+        // Get all h3 elements (terms) and their following content
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = originalHTML;
+        const allH3 = tempDiv.querySelectorAll('h3');
+        let visibleCount = 0;
+        let resultHTML = '';
+
+        allH3.forEach((h3) => {
+          const termName = h3.textContent.trim();
+          const nextP = h3.nextElementSibling;
+          const definition = nextP ? nextP.textContent.toLowerCase() : '';
+          const fullText = (termName + ' ' + definition).toLowerCase();
+
+          if (fullText.includes(query)) {
+            resultHTML += h3.outerHTML;
+            if (nextP) {
+              resultHTML += nextP.outerHTML;
+            }
+            visibleCount++;
+          }
+        });
+
+        glossaryDiv.innerHTML = resultHTML;
+        const countDiv = document.getElementById('glossSearchCount');
+        countDiv.textContent = `${visibleCount} résultat${visibleCount !== 1 ? 's' : ''} trouvé${visibleCount !== 1 ? 's' : ''}`;
+        countDiv.style.display = 'block';
+      });
     }
 
     // Language

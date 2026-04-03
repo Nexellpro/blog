@@ -16,7 +16,16 @@
       "Bash(npx vercel:*)",
       "Bash(netlify.toml:*)",
       "Bash(npx netlify:*)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "Bash(grep -n \"let cat = ''all''\" \"C:\\\\Users\\\\Marou\\\\Desktop\\\\Blog\\\\index.html\")",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"Add search functionality and animations:*)",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"Add header navigation buttons for themes and simulator:*)",
+      "Bash(git commit -m \"Add 4 new blog themes and ''Show more articles'' button:*)",
+      "Bash(grep -E \"\\\\.md$\")",
+      "Bash(git commit -m \"Update header navigation with utility buttons:*)"
     ]
   }
 }
