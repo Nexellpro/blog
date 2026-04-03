@@ -123,6 +123,29 @@
       background: rgba(45, 52, 54, 0.08);
     }
 
+    /* Show more button */
+    .show-more-btn {
+      padding: 0.7rem 1.8rem;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: var(--font);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .show-more-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    }
+    .show-more-btn:active {
+      transform: translateY(-1px);
+    }
+
     /* Search bar */
     .header-search {
       flex: 0 1 280px;
@@ -1253,6 +1276,34 @@
           cats: ['assurance'],
           layout: 'scroll'
         },
+        {
+          id: 'optimiser-epargne',
+          title: 'Optimiser son <span>épargne</span>',
+          subtitle: 'Rendements maximaux avec risque maîtrisé — votre feuille de route 2026',
+          cats: ['investissement', 'credit'],
+          layout: 'feature'
+        },
+        {
+          id: 'crypto-debutants',
+          title: 'Crypto pour les <span>débutants</span>',
+          subtitle: 'Les bases expliquées simplement — du portefeuille à votre première transaction',
+          cats: ['crypto'],
+          layout: 'scroll'
+        },
+        {
+          id: 'assurance-maline',
+          title: 'S\'assurer sans se <span>ruiner</span>',
+          subtitle: 'Couvertures essentielles au meilleur prix — comparatifs et pièges à éviter',
+          cats: ['assurance'],
+          layout: 'feature'
+        },
+        {
+          id: 'placements-rentables',
+          title: 'Placements <span>rentables</span> 2026',
+          subtitle: 'ETF, actions, immobilier — trouver le bon équilibre pour votre profil',
+          cats: ['investissement'],
+          layout: 'scroll'
+        },
       ],
     };
     THEMES.en = THEMES.fr;
@@ -1474,10 +1525,17 @@
           `;
           const scroll = document.createElement('div');
           scroll.className = 'theme-scroll';
-          articles.forEach((a, i) => {
+
+          // Show only first 5 articles initially
+          const displayLimit = 5;
+          const displayArticles = articles.slice(0, displayLimit);
+          const hiddenArticles = articles.slice(displayLimit);
+
+          displayArticles.forEach((a, i) => {
             const card = document.createElement('a');
             card.href = '#';
-            card.className = 'pill-card';
+            card.className = 'pill-card fade-up';
+            card.style.animationDelay = `${i * 0.03}s`;
             card.onclick = (e) => { e.preventDefault(); openArticle(a.file); };
             const thumb = THUMBS[a.cat] ? THUMBS[a.cat][i % THUMBS[a.cat].length] : '';
             card.innerHTML = `
@@ -1488,7 +1546,37 @@
               </div>`;
             scroll.appendChild(card);
           });
+
           sec.appendChild(scroll);
+
+          // Add "Show more" button if there are hidden articles
+          if (hiddenArticles.length > 0) {
+            const btnContainer = document.createElement('div');
+            btnContainer.style.cssText = 'margin-top:1.5rem;display:flex;justify-content:center;padding-bottom:1.5rem';
+            const btn = document.createElement('button');
+            btn.className = 'show-more-btn';
+            btn.textContent = `Voir les autres articles (${hiddenArticles.length})`;
+            btn.onclick = () => {
+              hiddenArticles.forEach((a, i) => {
+                const card = document.createElement('a');
+                card.href = '#';
+                card.className = 'pill-card fade-up';
+                card.style.animationDelay = `${i * 0.03}s`;
+                card.onclick = (e) => { e.preventDefault(); openArticle(a.file); };
+                const thumb = THUMBS[a.cat] ? THUMBS[a.cat][(displayLimit + i) % THUMBS[a.cat].length] : '';
+                card.innerHTML = `
+                  <img src="${thumb}" alt="" loading="lazy">
+                  <div class="pill-card-body">
+                    <div class="pill-card-cat" style="color:${CAT_META[a.cat].color}">${CAT_META[a.cat].label}</div>
+                    <h3>${a.title}</h3>
+                  </div>`;
+                scroll.appendChild(card);
+              });
+              btnContainer.remove();
+            };
+            btnContainer.appendChild(btn);
+            sec.appendChild(btnContainer);
+          }
         }
 
         container.appendChild(sec);
